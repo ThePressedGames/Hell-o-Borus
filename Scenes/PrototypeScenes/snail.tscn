@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dynt0p6l8287x"]
+
+[ext_resource type="Texture2D" uid="uid://u26d3wilur1e" path="res://Art/PrototypeSprites/240113_Helloborus_test_sprites.png" id="1_y55bh"]
+[ext_resource type="Script" path="res://Scenes/PrototypeScenes/snail.gd" id="2_xwddi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oro83"]
+atlas = ExtResource("1_y55bh")
+region = Rect2(77, 5, 255, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhedn"]
+atlas = ExtResource("1_y55bh")
+region = Rect2(77, 154, 255, 149)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuoeg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oro83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhedn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Snail" type="AnimatedSprite2D"]
+position = Vector2(483, 275)
+sprite_frames = SubResource("SpriteFrames_xuoeg")
+frame_progress = 0.406914
+script = ExtResource("2_xwddi")
