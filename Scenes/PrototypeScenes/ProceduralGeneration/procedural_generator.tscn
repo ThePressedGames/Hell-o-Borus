@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://crjumbkujnhpg"]
+
+[ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_generator.gd" id="1_656ed"]
+[ext_resource type="PackedScene" uid="uid://c5ixk4lub6380" path="res://Scenes/PrototypeScenes/ProceduralGeneration/map_tile.tscn" id="2_ob2lw"]
+
+[node name="ProceduralGenerator" type="Node2D"]
+script = ExtResource("1_656ed")
+ground_tile = ExtResource("2_ob2lw")

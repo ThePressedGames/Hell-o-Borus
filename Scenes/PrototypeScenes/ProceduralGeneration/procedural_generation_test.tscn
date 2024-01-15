@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0dg3pmtl6x4h"]
+
+[ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/PrototypeScenes/player.tscn" id="1_eob2c"]
+[ext_resource type="PackedScene" uid="uid://crjumbkujnhpg" path="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_generator.tscn" id="2_uajhw"]
+
+[node name="ProceduralGenerationMainScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_eob2c")]
+position = Vector2(640, 472)
+
+[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_uajhw")]
+player = NodePath("../Player")
