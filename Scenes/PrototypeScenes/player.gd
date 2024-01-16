@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var SPEED = 300.0
@@ -6,8 +7,15 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# signal player_moved_right
+
 func _ready():
 	$AnimatedSprite2D.play()
+	
+	# Set initial camera left boundary
+	var current_camera_left_boundary = position.x - (get_viewport_rect().size.x/2)
+	$Camera2D.set_limit(SIDE_LEFT, current_camera_left_boundary)
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -26,6 +34,15 @@ func _physics_process(delta):
 		direction.x -= 1
 	if Input.is_action_pressed("move-right"):
 		direction.x += 1
+		
+		var camera_left_limit = $Camera2D.get_limit(SIDE_LEFT)
+		var current_camera_left_boundary = position.x - (get_viewport_rect().size.x/2)
+		
+		# Set new camera limit_left
+		if camera_left_limit < current_camera_left_boundary:
+			$Camera2D.set_limit(SIDE_LEFT, current_camera_left_boundary)
+		
+		# player_moved_right.emit()
 	
 	if direction != Vector2.ZERO:
 		velocity.x = direction.x * SPEED
@@ -33,3 +50,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+
+
+func _on_obstacle_body_entered(body):
+	print("Obstacle hit!")
