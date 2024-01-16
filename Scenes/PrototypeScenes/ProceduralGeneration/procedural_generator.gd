@@ -2,34 +2,37 @@
 extends Node2D
 
 # Bottom limit to instantiate ground tiles in px
-const GROUND_BOTTOM_LIMIT = 640
-# Tile size in px
-const TILE_SIZE = 128
+@export var ground_bottom_limit = 640
 
 @export var player: Player
 
-@export_group("Tiles", "tile_")
-@export var ground_tile: PackedScene
-
-var instantiated_tiles: Array
+# var instantiated_tiles: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	# Loop to instantiate all tiles
-	for i in range(-4, 8) : # Range values HARDCODED
-		var tile = ground_tile.instantiate()
-		
-		# Calculate and set tile position
-		var tile_position = Vector2(player.position.x + (i * TILE_SIZE), GROUND_BOTTOM_LIMIT)
-		tile.position = tile_position
-		
-		print("Instantiating tile in position " + str(tile.position))
-		
-		# Spawn tile
-		add_child(tile)
-		
-		instantiated_tiles.append(tile)
+	# Static body for ground
+	var ground = StaticBody2D.new()
+	
+	# Ground collision shape setup
+	var ground_collision = CollisionShape2D.new()
+	var ground_shape = RectangleShape2D.new()
+	ground_shape.size = Vector2(10000, 20)
+	ground_collision.set_shape(ground_shape)
+	ground.add_child(ground_collision)
+	
+	# Ground mesh setup
+	var ground_mesh_instance = MeshInstance2D.new()
+	var ground_mesh = QuadMesh.new()
+	ground_mesh.size = ground_shape.size
+	ground_mesh_instance.set_mesh(ground_mesh)
+	ground.add_child(ground_mesh_instance)
+	
+	# Ground positioning and instantiating
+	ground.set_position(Vector2(500, ground_bottom_limit))
+	add_child(ground)
+	
+	# instantiated_tiles.append(tile)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
