@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0dg3pmtl6x4h"]
+[gd_scene load_steps=4 format=3 uid="uid://c0dg3pmtl6x4h"]
 
 [ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/PrototypeScenes/player.tscn" id="1_eob2c"]
 [ext_resource type="PackedScene" uid="uid://crjumbkujnhpg" path="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_generator.tscn" id="2_uajhw"]
+[ext_resource type="PackedScene" uid="uid://mjftgtg34ma4" path="res://Scenes/PrototypeScenes/obstacle.tscn" id="3_l03qm"]
 
 [node name="ProceduralGenerationMainScene" type="Node2D"]
 
@@ -10,3 +11,8 @@ position = Vector2(640, 472)
 
 [node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_uajhw")]
 player = NodePath("../Player")
+
+[node name="Obstacle" parent="." instance=ExtResource("3_l03qm")]
+position = Vector2(1548, 510)
+
+[connection signal="body_entered" from="Obstacle" to="Player" method="_on_obstacle_body_entered"]
