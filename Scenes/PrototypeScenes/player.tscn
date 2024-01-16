@@ -78,6 +78,7 @@ animation = &"player_idle"
 frame_progress = 0.454407
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_bottom = 850
 drag_vertical_enabled = true
 drag_top_margin = 0.7
 editor_draw_drag_margin = true
