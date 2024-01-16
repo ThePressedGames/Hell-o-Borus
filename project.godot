@@ -15,10 +15,6 @@ run/main_scene="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_gen
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[dotnet]
-
-project/assembly_name="Hell o- Borus"
-
 [input]
 
 move-right={
