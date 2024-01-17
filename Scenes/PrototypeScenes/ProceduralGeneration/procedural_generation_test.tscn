@@ -1,10 +1,122 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0dg3pmtl6x4h"]
 
 [ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/PrototypeScenes/player.tscn" id="1_eob2c"]
+[ext_resource type="Texture2D" uid="uid://iufwufgmk1ep" path="res://Art/environment/240115_background03.png" id="1_x83jg"]
 [ext_resource type="PackedScene" uid="uid://crjumbkujnhpg" path="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_generator.tscn" id="2_uajhw"]
+[ext_resource type="Texture2D" uid="uid://c6hcegcelwhe8" path="res://Art/environment/240114_tree01.png" id="2_v6sur"]
+[ext_resource type="Texture2D" uid="uid://du56o8blu88wr" path="res://Art/environment/240114_tree02.png" id="3_7gey2"]
+[ext_resource type="PackedScene" uid="uid://mjftgtg34ma4" path="res://Scenes/PrototypeScenes/obstacle.tscn" id="3_l03qm"]
 [ext_resource type="PackedScene" uid="uid://3edwepn5lj6q" path="res://Scenes/PrototypeScenes/obstacle.tscn" id="3_l03qm"]
 
 [node name="ProceduralGenerationMainScene" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer_background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D_sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_background"]
+position = Vector2(577, 322.5)
+texture = ExtResource("1_x83jg")
+
+[node name="ParallaxLayer2_far" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D_tree10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(668, 335)
+scale = Vector2(0.442707, 0.442707)
+texture = ExtResource("3_7gey2")
+
+[node name="Sprite2D_tree11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(478, 347)
+scale = Vector2(0.458313, 0.458313)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(113.036, 349.573)
+scale = Vector2(0.401061, 0.401061)
+texture = ExtResource("3_7gey2")
+
+[node name="Sprite2D_tree13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(206, 366)
+scale = Vector2(0.458015, 0.458015)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(243.057, 316.138)
+scale = Vector2(0.526285, 0.526285)
+texture = ExtResource("3_7gey2")
+
+[node name="Sprite2D_tree07" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(340, 337)
+scale = Vector2(0.496561, 0.496561)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree08" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(431.392, 284.352)
+scale = Vector2(0.674746, 0.674746)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree09" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(553, 299)
+scale = Vector2(0.582741, 0.582741)
+texture = ExtResource("3_7gey2")
+
+[node name="Sprite2D_tree04" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(821, 380)
+scale = Vector2(0.374254, 0.374254)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree05" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(782, 341)
+scale = Vector2(0.496757, 0.496757)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree06" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(845, 338)
+scale = Vector2(0.483733, 0.483733)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(1066, 305.146)
+scale = Vector2(0.538101, 0.538101)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree03" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(982, 308)
+scale = Vector2(0.637405, 0.637405)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+position = Vector2(1124, 273)
+scale = Vector2(0.695509, 0.695509)
+texture = ExtResource("2_v6sur")
+
+[node name="ParallaxLayer3_close" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.25)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D_tree04" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3_close"]
+position = Vector2(379, 202)
+texture = ExtResource("3_7gey2")
+
+[node name="Sprite2D_tree03" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3_close"]
+position = Vector2(889, 214)
+texture = ExtResource("2_v6sur")
+
+[node name="Sprite2D_tree02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3_close"]
+position = Vector2(1030.5, 198)
+texture = ExtResource("3_7gey2")
+
+[node name="ParallaxLayer4_very close" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D_tree02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4_very close"]
+position = Vector2(798, -270)
+scale = Vector2(3.1788, 3.1788)
+texture = ExtResource("3_7gey2")
 
 [node name="Player" parent="." instance=ExtResource("1_eob2c")]
 position = Vector2(640, 442)
@@ -20,3 +132,15 @@ position = Vector2(2952, 703)
 
 [connection signal="body_entered" from="Obstacle" to="Player" method="_on_obstacle_body_entered"]
 [connection signal="body_entered" from="Obstacle2" to="Player" method="_on_obstacle_body_entered"]
+
+[node name="ParallaxBackground2 (Foreground)" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="ParallaxLayer5_front" type="ParallaxLayer" parent="ParallaxBackground2 (Foreground)"]
+motion_scale = Vector2(2, 1)
+motion_mirroring = Vector2(4608, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2 (Foreground)/ParallaxLayer5_front"]
+position = Vector2(1374, -2845)
+scale = Vector2(16.2902, 16.2902)
+texture = ExtResource("2_v6sur")
