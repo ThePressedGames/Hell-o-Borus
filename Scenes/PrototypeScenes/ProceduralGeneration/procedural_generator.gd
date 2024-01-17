@@ -4,7 +4,7 @@ extends Node2D
 @export var player: Player
 
 # Bottom limit to instantiate terrain tiles in px
-var terrain_bottom_limit = 850
+var terrain_bottom_limit = 800
 
 var terrain_block: PackedScene = preload("res://Scenes/PrototypeScenes/ProceduralGeneration/terrain_block.tscn")
 
