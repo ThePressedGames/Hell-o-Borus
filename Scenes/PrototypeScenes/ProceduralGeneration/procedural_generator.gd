@@ -1,42 +1,40 @@
-# @tool
+@tool
 extends Node2D
-
-# Bottom limit to instantiate ground tiles in px
-@export var ground_bottom_limit = 640
 
 @export var player: Player
 
-# var instantiated_tiles: Array
+# Bottom limit to instantiate terrain tiles in px
+var terrain_bottom_limit = 850
+
+var terrain_block: PackedScene = preload("res://Scenes/PrototypeScenes/ProceduralGeneration/terrain_block.tscn")
+
+@export var terrain_block_width = 800
+@export var terrain_block_height = 50
+var last_spawned_terrain_block = 0
+
+
+# @export var obstacle: PackedScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	# Static body for ground
-	var ground = StaticBody2D.new()
-	
-	# Ground collision shape setup
-	var ground_collision = CollisionShape2D.new()
-	var ground_shape = RectangleShape2D.new()
-	ground_shape.size = Vector2(10000, 20)
-	ground_collision.set_shape(ground_shape)
-	ground.add_child(ground_collision)
-	
-	# Ground mesh setup
-	var ground_mesh_instance = MeshInstance2D.new()
-	var ground_mesh = QuadMesh.new()
-	ground_mesh.size = ground_shape.size
-	ground_mesh_instance.set_mesh(ground_mesh)
-	ground.add_child(ground_mesh_instance)
-	
-	# Ground positioning and instantiating
-	ground.set_position(Vector2(500, ground_bottom_limit))
-	add_child(ground)
-	
-	# instantiated_tiles.append(tile)
+	# spawn_terrain_block(0)
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var player_x = player.global_position.x
+	
+	if player_x > last_spawned_terrain_block - terrain_block_width:
+		spawn_terrain_block(last_spawned_terrain_block)
 
-# func _on_player_player_moved_right():
-# 	pass # Replace with function body.
+
+func spawn_terrain_block(x_offset: float):
+	var terrain_block_instance = terrain_block.instantiate()
+	terrain_block_instance.spawn_block(terrain_block_width, terrain_block_height)
+	terrain_block_instance.position.x = x_offset
+	terrain_block_instance.position.y = terrain_bottom_limit
+	add_child(terrain_block_instance)
+	
+	last_spawned_terrain_block += terrain_block_width

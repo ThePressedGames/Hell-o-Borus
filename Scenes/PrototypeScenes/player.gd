@@ -7,8 +7,6 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# signal player_moved_right
-
 func _ready():
 	$AnimatedSprite2D.play()
 	
@@ -41,8 +39,6 @@ func _physics_process(delta):
 		# Set new camera limit_left
 		if camera_left_limit < current_camera_left_boundary:
 			$Camera2D.set_limit(SIDE_LEFT, current_camera_left_boundary)
-		
-		# player_moved_right.emit()
 	
 	if direction != Vector2.ZERO:
 		velocity.x = direction.x * SPEED

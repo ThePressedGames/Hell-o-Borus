@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ixk4lub6380"]
+
+[ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/terrain_block.gd" id="1_jumic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3sx1"]
+size = Vector2(800, 50)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i7unh"]
+size = Vector2(800, 50)
+
+[node name="TerrainBlock" type="StaticBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_jumic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e3sx1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_i7unh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-400, -25, 800, 50)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
