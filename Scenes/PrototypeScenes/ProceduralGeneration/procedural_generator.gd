@@ -1,4 +1,4 @@
-@tool
+# @tool
 extends Node2D
 
 @export var player: Player
@@ -12,7 +12,32 @@ var last_spawned_terrain_block = 0
 
 # Background elements variables
 var background_element: PackedScene = preload("res://Scenes/PrototypeScenes/ProceduralGeneration/background_element.tscn")
-var last_spawned_element_offset = 0
+@export_group("Background elements")
+@export_subgroup("Parallax layer FAR", "far_")
+@export var far_parallax_layer: ParallaxLayer
+var last_spawned_element_far_offset_x: int = 0
+@export var far_layer_offset_y = 200
+@export var far_layer_min_spacing_x = 100
+@export var far_layer_max_spacing_x = 400
+@export_subgroup("Parallax layer CLOSE", "close_")
+@export var close_parallax_layer: ParallaxLayer
+var last_spawned_element_close_offset_x: int = 0
+@export var close_layer_offset_y = 250
+@export var close_layer_min_spacing_x = 300
+@export var close_layer_max_spacing_x = 700
+@export_subgroup("Parallax layer VERY CLOSE", "very_close_")
+@export var very_close_parallax_layer: ParallaxLayer
+var last_spawned_element_very_close_offset_x: int = 0
+@export var very_close_layer_offset_y = 450
+@export var very_close_layer_min_spacing_x = 150
+@export var very_close_layer_max_spacing_x = 500
+@export_subgroup("Parallax layer FRONT", "front_")
+@export var front_parallax_layer: ParallaxLayer
+var last_spawned_element_front_offset_x: int = 0
+@export var front_layer_offset_y = 450
+@export var front_layer_min_spacing_x = 400
+@export var front_layer_max_spacing_x = 900
+
 
 # @export var obstacle: PackedScene
 
@@ -25,8 +50,23 @@ func _process(delta):
 		spawn_terrain_block(last_spawned_terrain_block)
 	
 	# Spawn background elements
-	if player_x > last_spawned_element_offset - terrain_block_width:
-		spawn_background_element(last_spawned_element_offset)
+	# Far layer
+	if player_x > last_spawned_element_far_offset_x - terrain_block_width:
+		var element = spawn_background_element(far_parallax_layer, last_spawned_element_far_offset_x, far_layer_offset_y)
+		last_spawned_element_far_offset_x = element.calculate_next_offset(last_spawned_element_far_offset_x, far_layer_min_spacing_x, far_layer_max_spacing_x)
+	# Close layer
+	if player_x > last_spawned_element_close_offset_x - terrain_block_width:
+		var element = spawn_background_element(close_parallax_layer, last_spawned_element_close_offset_x, close_layer_offset_y)
+		last_spawned_element_close_offset_x = element.calculate_next_offset(last_spawned_element_close_offset_x, close_layer_min_spacing_x, close_layer_max_spacing_x)
+	# Very close layer
+	if player_x > last_spawned_element_very_close_offset_x - terrain_block_width:
+		var element = spawn_background_element(very_close_parallax_layer, last_spawned_element_very_close_offset_x, very_close_layer_offset_y)
+		last_spawned_element_very_close_offset_x = element.calculate_next_offset(last_spawned_element_very_close_offset_x, very_close_layer_min_spacing_x, very_close_layer_max_spacing_x)
+	# Front layer
+	# No check for player position because it's hard to keep up with the fast movement
+	if player_x > last_spawned_element_front_offset_x - terrain_block_width:
+		var element = spawn_background_element(front_parallax_layer, last_spawned_element_front_offset_x, front_layer_offset_y)
+		last_spawned_element_front_offset_x = element.calculate_next_offset(last_spawned_element_front_offset_x, front_layer_min_spacing_x, front_layer_max_spacing_x)
 
 
 func spawn_terrain_block(x_offset: float):
@@ -39,9 +79,8 @@ func spawn_terrain_block(x_offset: float):
 	last_spawned_terrain_block += terrain_block_width
 
 
-func spawn_background_element(x_offset: float):
+func spawn_background_element(layer: ParallaxLayer, x_offset: float, y_offset: float):
 	var background_element_instance = background_element.instantiate()
-	background_element_instance.calculate_position(x_offset)
-	add_child(background_element_instance)
-	
-	last_spawned_element_offset = background_element_instance.calculate_next_offset(last_spawned_element_offset)
+	background_element_instance.update_position(x_offset, y_offset)
+	layer.add_child(background_element_instance)
+	return background_element_instance
