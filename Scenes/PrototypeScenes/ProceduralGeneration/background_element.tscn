@@ -5,5 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bos6b1dkn68ap" path="res://Art/Procedurally generated painting/240124_tree02.png" id="3_42irc"]
 
 [node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_6bkxk")
 script = ExtResource("1_pphdj")
 sprites = Array[Texture2D]([ExtResource("1_6bkxk"), ExtResource("3_42irc")])
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.5, 4.49997)
+scale = Vector2(15.45, 30.85)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
