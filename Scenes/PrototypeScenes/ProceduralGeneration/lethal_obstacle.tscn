@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://db0ox72wglw8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blre7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rypy6"]
+size = Vector2(20, 20)
+
+[node name="LethalObstacle" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_blre7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+mesh = SubResource("QuadMesh_rypy6")
