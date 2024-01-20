@@ -1,141 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0dg3pmtl6x4h"]
+[gd_scene load_steps=8 format=3 uid="uid://c0dg3pmtl6x4h"]
 
 [ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/PrototypeScenes/player.tscn" id="1_eob2c"]
 [ext_resource type="Texture2D" uid="uid://iufwufgmk1ep" path="res://Art/environment/240115_background03.png" id="1_x83jg"]
 [ext_resource type="PackedScene" uid="uid://crjumbkujnhpg" path="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_generator.tscn" id="2_uajhw"]
-[ext_resource type="Texture2D" uid="uid://c6hcegcelwhe8" path="res://Art/environment/240114_tree01.png" id="2_v6sur"]
-[ext_resource type="Texture2D" uid="uid://du56o8blu88wr" path="res://Art/environment/240114_tree02.png" id="3_7gey2"]
-[ext_resource type="PackedScene" uid="uid://mjftgtg34ma4" path="res://Scenes/PrototypeScenes/obstacle.tscn" id="3_l03qm"]
+[ext_resource type="PackedScene" uid="uid://3edwepn5lj6q" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle_rock1.tscn" id="3_l03qm"]
+[ext_resource type="PackedScene" uid="uid://db0ox72wglw8n" path="res://Scenes/PrototypeScenes/ProceduralGeneration/lethal_obstacle.tscn" id="5_ofe1o"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_gxpgf"]
+size = Vector2(10000, 1000)
+
+[sub_resource type="QuadMesh" id="QuadMesh_6n3c1"]
+size = Vector2(5000, 100)
 
 [node name="ProceduralGenerationMainScene" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer_background" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(1152, 0)
-
-[node name="Sprite2D_sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_background"]
+[node name="Sprite2D_sky" type="Sprite2D" parent="ParallaxBackground"]
 position = Vector2(577, 322.5)
 texture = ExtResource("1_x83jg")
 
 [node name="ParallaxLayer2_far" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.1)
-motion_mirroring = Vector2(1152, 0)
+position = Vector2(300, 300)
+scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.1, 0.01)
 
-[node name="Sprite2D_tree10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(668, 335)
-scale = Vector2(0.442707, 0.442707)
-texture = ExtResource("3_7gey2")
-
-[node name="Sprite2D_tree11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(478, 347)
-scale = Vector2(0.458313, 0.458313)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(113.036, 349.573)
-scale = Vector2(0.401061, 0.401061)
-texture = ExtResource("3_7gey2")
-
-[node name="Sprite2D_tree13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(206, 366)
-scale = Vector2(0.458015, 0.458015)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(243.057, 316.138)
-scale = Vector2(0.526285, 0.526285)
-texture = ExtResource("3_7gey2")
-
-[node name="Sprite2D_tree07" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(340, 337)
-scale = Vector2(0.496561, 0.496561)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree08" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(431.392, 284.352)
-scale = Vector2(0.674746, 0.674746)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree09" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(553, 299)
-scale = Vector2(0.582741, 0.582741)
-texture = ExtResource("3_7gey2")
-
-[node name="Sprite2D_tree04" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(821, 380)
-scale = Vector2(0.374254, 0.374254)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree05" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(782, 341)
-scale = Vector2(0.496757, 0.496757)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree06" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(845, 338)
-scale = Vector2(0.483733, 0.483733)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(1066, 305.146)
-scale = Vector2(0.538101, 0.538101)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree03" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(982, 308)
-scale = Vector2(0.637405, 0.637405)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2_far"]
-position = Vector2(1124, 273)
-scale = Vector2(0.695509, 0.695509)
-texture = ExtResource("2_v6sur")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ParallaxBackground/ParallaxLayer2_far"]
+modulate = Color(0.894118, 0.85098, 0.960784, 1)
+position = Vector2(0, 900)
+mesh = SubResource("QuadMesh_gxpgf")
 
 [node name="ParallaxLayer3_close" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.25)
-motion_mirroring = Vector2(1152, 0)
-
-[node name="Sprite2D_tree04" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3_close"]
-position = Vector2(379, 202)
-texture = ExtResource("3_7gey2")
-
-[node name="Sprite2D_tree03" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3_close"]
-position = Vector2(889, 214)
-texture = ExtResource("2_v6sur")
-
-[node name="Sprite2D_tree02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3_close"]
-position = Vector2(1030.5, 198)
-texture = ExtResource("3_7gey2")
+position = Vector2(0, 50)
+motion_scale = Vector2(0.4, 0.4)
 
 [node name="ParallaxLayer4_very close" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1152, 0)
-
-[node name="Sprite2D_tree02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4_very close"]
-position = Vector2(798, -270)
-scale = Vector2(3.1788, 3.1788)
-texture = ExtResource("3_7gey2")
+position = Vector2(0, -2900)
+scale = Vector2(5, 5)
 
 [node name="Player" parent="." instance=ExtResource("1_eob2c")]
-position = Vector2(640, 472)
+position = Vector2(640, 610)
 
-[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_uajhw")]
+[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player", "far_parallax_layer", "close_parallax_layer", "very_close_parallax_layer", "front_parallax_layer") instance=ExtResource("2_uajhw")]
 player = NodePath("../Player")
+far_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer2_far")
+far_layer_offset_y = 200
+close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer3_close")
+close_layer_offset_y = 250
+very_close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer4_very close")
+very_close_layer_offset_y = 450
+front_parallax_layer = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front")
+front_layer_offset_y = -1000
+ground_obstacles = Array[PackedScene]([ExtResource("3_l03qm")])
 
-[node name="Obstacle" parent="." instance=ExtResource("3_l03qm")]
-position = Vector2(1548, 510)
+[node name="Obstacle2" parent="." instance=ExtResource("3_l03qm")]
+position = Vector2(2314, 582)
+scale = Vector2(9.59, 9.59)
 
-[connection signal="body_entered" from="Obstacle" to="Player" method="_on_obstacle_body_entered"]
+[node name="Obstacle3" parent="." instance=ExtResource("3_l03qm")]
+position = Vector2(5093, 620)
+scale = Vector2(9.59, 9.59)
+
+[node name="Obstacle4" parent="." instance=ExtResource("3_l03qm")]
+position = Vector2(8303, 546)
+scale = Vector2(9.59, 9.59)
+
+[node name="Obstacle5" parent="." instance=ExtResource("3_l03qm")]
+position = Vector2(12078, 616)
+scale = Vector2(9.59, 9.59)
 
 [node name="ParallaxBackground2 (Foreground)" type="ParallaxBackground" parent="."]
 layer = 1
 
 [node name="ParallaxLayer5_front" type="ParallaxLayer" parent="ParallaxBackground2 (Foreground)"]
+position = Vector2(0, 5000)
+scale = Vector2(6, 6)
 motion_scale = Vector2(2, 1)
-motion_mirroring = Vector2(4608, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2 (Foreground)/ParallaxLayer5_front"]
-position = Vector2(1374, -2845)
-scale = Vector2(16.2902, 16.2902)
-texture = ExtResource("2_v6sur")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ParallaxBackground2 (Foreground)/ParallaxLayer5_front"]
+modulate = Color(0.894118, 0.85098, 0.960784, 1)
+z_index = 1
+position = Vector2(152.5, -656.667)
+mesh = SubResource("QuadMesh_6n3c1")
+
+[node name="LethalObstacle" parent="." instance=ExtResource("5_ofe1o")]
+position = Vector2(6814, 637)
+
+[connection signal="body_entered" from="LethalObstacle" to="Player" method="_on_obstacle_body_entered"]
