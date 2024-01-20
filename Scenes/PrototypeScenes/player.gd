@@ -1,8 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
+signal hit
+
 @export var speed = 300.0
 @export var jump_velocity = -400.0
+@export var falling_velocity_multiplier: float = 4
 # Coyote effect
 @export var hang_time: float = .3
 var hang_time_counter: float
@@ -12,6 +15,7 @@ var jump_buffer_time_counter: float
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -44,13 +48,15 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta * 1.5
+		velocity.y += gravity * delta * falling_velocity_multiplier
 		hang_time_counter -= delta
 	
 	# Handle jump.
+	# When jump button is pressed, start a time buffer to make the player jump as soon as he can
 	if Input.is_action_pressed("jump"):
 		jump_buffer_time_counter = jump_buffer_time
 	
+	# Slow down ascension when jump button in released mid-jump
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		print("Slow down!")
 		velocity.y = velocity.y * .2
@@ -67,5 +73,10 @@ func _physics_process(delta):
 
 
 func _on_obstacle_body_entered(body):
-	print("Obstacle hit!")
+	#print("Obstacle hit!")
+	position.y -= 40
+	set_process(false)
+	set_physics_process(false)
 	$AnimatedSprite2D.animation = "death"
+	
+	hit.emit()
