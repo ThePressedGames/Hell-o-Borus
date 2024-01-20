@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvirx2k4b34u7"]
+
+[ext_resource type="Script" path="res://Scenes/PrototypeScenes/hud.gd" id="1_oq8vo"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_oq8vo")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_right = 35.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "SCORE:"
+
+[node name="ScoreValue" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 44.0
+offset_right = 209.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "0"
