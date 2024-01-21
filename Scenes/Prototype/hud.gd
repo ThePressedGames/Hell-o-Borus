@@ -14,21 +14,21 @@ func show_game_over_message():
 	$GameOverLabel.show()
 	$LineEdit.show()
 	
-func testino_pane_vino():
+func _testino_pane_vino():
 	print("TEST")
 	# Load the board entry scene
-	var board_entry = load("res://Scenes/PrototypeScenes/BoardEntry.tscn")
-
-	#await %ScorePanel/ScrollContainer/PlayersList.ready
-	# Create a new instance of the board entry scene
-	var new_board_entry = board_entry.instantiate()
-
-	# Set the text of the labels in the board entry scene
-	new_board_entry.get_node("NameLabel").text = "Player Name"
-	new_board_entry.get_node("ScoreLabel").text = "100"
+	#var board_entry = load("res://Scenes/BoardEntry.tscn")
+#
+	##await %ScorePanel/ScrollContainer/PlayersList.ready
+	## Create a new instance of the board entry scene
+	#var new_board_entry = board_entry.instantiate()
+#
+	## Set the text of the labels in the board entry scene
+	#new_board_entry.get_node("NameLabel").text = "Player Name"
+	#new_board_entry.get_node("ScoreLabel").text = "100"
 
 	# Add the new board entry to the playerslist container
-	%ScorePanel.add_child(new_board_entry)
+	%ScorePanel.hide()
 	#var button_pck = preload("res://Scenes/PrototypeScenes/BoardEntry.tscn")
 	#var button = button_pck.instance()
 	#$ScorePanel/ScrollContainer/PlayersList.add_child(button)

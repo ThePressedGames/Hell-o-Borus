@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://sxa4ohwebo68"]
+[gd_scene load_steps=2 format=3 uid="uid://c6copwih5l6gj"]
 
-[ext_resource type="Script" path="res://Scenes/Prototype/BoardEntry.gd" id="1_hh2ux"]
+[ext_resource type="Script" path="res://Scenes/Prototype/BoardEntry.gd" id="1_bvoi0"]
 
 [node name="BoardEntry" type="HBoxContainer"]
 offset_right = 868.0
 offset_bottom = 34.0
-script = ExtResource("1_hh2ux")
+script = ExtResource("1_bvoi0")
 
 [node name="NameLabel" type="Label" parent="."]
 layout_mode = 2
