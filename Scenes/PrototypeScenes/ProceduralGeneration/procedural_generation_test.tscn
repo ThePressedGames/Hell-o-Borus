@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0dg3pmtl6x4h"]
+[gd_scene load_steps=14 format=3 uid="uid://c0dg3pmtl6x4h"]
 
 [ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/PrototypeScenes/player.tscn" id="1_eob2c"]
 [ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/game_scene.gd" id="1_m37u2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crjumbkujnhpg" path="res://Scenes/PrototypeScenes/ProceduralGeneration/procedural_generator.tscn" id="2_uajhw"]
 [ext_resource type="PackedScene" uid="uid://3edwepn5lj6q" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle_rock1.tscn" id="3_l03qm"]
 [ext_resource type="PackedScene" uid="uid://bvirx2k4b34u7" path="res://Scenes/PrototypeScenes/hud.tscn" id="6_4iccb"]
+[ext_resource type="PackedScene" uid="uid://db0ox72wglw8n" path="res://Scenes/PrototypeScenes/ProceduralGeneration/lethal_obstacle.tscn" id="8_0vut1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gxpgf"]
 size = Vector2(10000, 1000)
@@ -119,4 +120,9 @@ mesh = SubResource("QuadMesh_6n3c1")
 
 [node name="HUD" parent="." instance=ExtResource("6_4iccb")]
 
+[node name="LethalObstacle" parent="." instance=ExtResource("8_0vut1")]
+position = Vector2(1645, 654)
+
+[connection signal="hit" from="Player" to="." method="_game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="body_entered" from="LethalObstacle" to="Player" method="_on_obstacle_body_entered"]

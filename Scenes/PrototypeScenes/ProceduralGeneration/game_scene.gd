@@ -2,13 +2,21 @@ extends Node2D
 
 var score
 
-
 func _ready():
 	score = 0
+	SilentWolf.configure({
+		"api_key": "lb6MlBbxsM5CkXwPi710p7pCzWeDVExd3TIjymaa",
+		"game_id": "Hell-o-borus",
+		"log_level": 1
+	})
+
+	# TODO: Questo rimanda ad una scena particolare quando chiudi la leaderboard, mandare a main menu
+	#SilentWolf.configure_scores({
+		#"open_scene_on_close": "res://scenes/MainPage.tscn"
+	#})
 	$ScoreTimer.start()
 
-
-func game_over():
+func _game_over():
 	$ScoreTimer.stop()
 	$HUD.show_game_over_message()
 

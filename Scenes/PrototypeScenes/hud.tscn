@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvirx2k4b34u7"]
+[gd_scene load_steps=3 format=3 uid="uid://bvirx2k4b34u7"]
 
 [ext_resource type="Script" path="res://Scenes/PrototypeScenes/hud.gd" id="1_oq8vo"]
+[ext_resource type="PackedScene" uid="uid://sxa4ohwebo68" path="res://Scenes/PrototypeScenes/BoardEntry.tscn" id="2_rcrao"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_oq8vo")
@@ -41,3 +42,84 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "GAME OVER!"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 415.0
+offset_top = 233.0
+offset_right = 737.0
+offset_bottom = 291.0
+placeholder_text = "Your name..."
+alignment = 1
+max_length = 12
+clear_button_enabled = true
+
+[node name="Button" type="Button" parent="LineEdit"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 66.0
+offset_right = 320.0
+offset_bottom = 97.0
+text = "Submit score"
+
+[node name="ScorePanel" type="Panel" parent="."]
+offset_left = 124.0
+offset_top = 234.0
+offset_right = 1038.0
+offset_bottom = 572.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScorePanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 109.0
+offset_right = 893.0
+offset_bottom = 338.0
+
+[node name="PlayersList" type="VBoxContainer" parent="ScorePanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="BoardEntry" parent="ScorePanel/ScrollContainer/PlayersList" instance=ExtResource("2_rcrao")]
+layout_mode = 2
+
+[node name="BoardEntry2" parent="ScorePanel/ScrollContainer/PlayersList" instance=ExtResource("2_rcrao")]
+layout_mode = 2
+
+[node name="BoardEntry3" parent="ScorePanel/ScrollContainer/PlayersList" instance=ExtResource("2_rcrao")]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="ScorePanel"]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 68.0
+offset_right = 95.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 24
+text = "Name"
+
+[node name="ScoreLabel" type="Label" parent="ScorePanel"]
+layout_mode = 2
+offset_left = 825.0
+offset_top = 68.0
+offset_right = 889.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 24
+text = "Score"
+
+[node name="Label" type="Label" parent="ScorePanel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 914.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ScorePanel"]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 277.0
+offset_right = 1030.0
+offset_bottom = 321.0
+text = "TEST"
+
+[connection signal="pressed" from="LineEdit/Button" to="." method="save_score_lw"]
+[connection signal="pressed" from="ScorePanel/Button" to="." method="testino_pane_vino"]

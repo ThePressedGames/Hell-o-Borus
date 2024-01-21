@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://sxa4ohwebo68"]
+
+[ext_resource type="Script" path="res://Scenes/PrototypeScenes/BoardEntry.gd" id="1_hh2ux"]
+
+[node name="BoardEntry" type="HBoxContainer"]
+offset_right = 868.0
+offset_bottom = 34.0
+script = ExtResource("1_hh2ux")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Name"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Score"
+horizontal_alignment = 2
