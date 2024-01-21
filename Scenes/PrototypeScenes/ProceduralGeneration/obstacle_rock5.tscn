@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkhwulrv82ib4"]
+
+[ext_resource type="Texture2D" uid="uid://tmvxy0jyfct0" path="res://Art/environment/240116_Helloborus_rock05.png" id="1_a5r1e"]
+[ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle.gd" id="1_bnbvq"]
+
+[node name="Obstacle" type="StaticBody2D"]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_bnbvq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5r1e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.4, 0.4)
+polygon = PackedVector2Array(-565, 165, -495, 75, -565, -10, -515, -72.5, -370, -77.5, -355, -60, -270, -132.5, -140, -167.5, -95, -157.5, -67.5, -105, 175, -202.5, 215, -195, 222.5, -135, 255, -127.5, 322.5, -170, 417.5, -180, 517.5, -122.5, 525, -47.5, 565, 65, 532.5, 162.5)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -256.667)
+scale = Vector2(22.9167, 32.1667)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

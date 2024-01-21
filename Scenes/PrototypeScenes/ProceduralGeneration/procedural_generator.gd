@@ -120,8 +120,7 @@ func _on_obstacle_spawn_timer_timeout():
 	var new_scale = randf_range(0.5, 1.5)
 	obstacle_instance.scale = Vector2(new_scale, new_scale)
 	
-	obstacle_instance.position.x = player.global_position.x + 1500
+	obstacle_instance.position.x = player.global_position.x + 2000
 	obstacle_instance.position.y = 600 + (50/obstacle_instance.scale.x)
-	print(str(obstacle_instance.position))
 	add_child(obstacle_instance)
 	$ObstacleSpawnTimer.wait_time = randf_range(obstacles_min_spawn_interval, obstacles_max_spawn_interval)
