@@ -5,14 +5,14 @@ extends Node2D
 
 # Ground blocks variables
 var terrain_bottom_limit = 800
-var terrain_block: PackedScene = preload("res://Scenes/PrototypeScenes/ProceduralGeneration/terrain_block.tscn")
+var terrain_block: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/terrain_block.tscn")
 @export var terrain_block_width = 800
 @export var terrain_block_height = 50
 var last_spawned_terrain_block = 0
 
 # Background elements variables
-var background_element_tree: PackedScene = preload("res://Scenes/PrototypeScenes/ProceduralGeneration/background_element_tree.tscn")
-var background_element_rock: PackedScene = preload("res://Scenes/PrototypeScenes/ProceduralGeneration/background_element_rock.tscn")
+var background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_tree.tscn")
+var background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_rock.tscn")
 @export_group("Background elements")
 @export_subgroup("Parallax layer VERY FAR", "very_far_")
 @export var very_far_parallax_layer: ParallaxLayer
@@ -120,8 +120,7 @@ func _on_obstacle_spawn_timer_timeout():
 	var new_scale = randf_range(0.5, 1.5)
 	obstacle_instance.scale = Vector2(new_scale, new_scale)
 	
-	obstacle_instance.position.x = player.global_position.x + 1500
+	obstacle_instance.position.x = player.global_position.x + 2000
 	obstacle_instance.position.y = 600 + (50/obstacle_instance.scale.x)
-	print(str(obstacle_instance.position))
 	add_child(obstacle_instance)
 	$ObstacleSpawnTimer.wait_time = randf_range(obstacles_min_spawn_interval, obstacles_max_spawn_interval)

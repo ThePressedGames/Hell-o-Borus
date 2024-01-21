@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2s6b21e0mdoq"]
 
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/player.gd" id="1_o78hj"]
+[ext_resource type="Script" path="res://Scenes/Prototype/player.gd" id="1_o78hj"]
 [ext_resource type="Texture2D" uid="uid://bnnno7ffah6jh" path="res://Art/PC/240117_Borus_sprite_sheet.png" id="2_ohqh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu505"]
@@ -84,7 +84,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -105,8 +105,10 @@ frame_progress = 0.232974
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 850
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 drag_left_margin = 1.0
 drag_top_margin = 0.7
-drag_right_margin = 1.0
+drag_right_margin = 0.0
 drag_bottom_margin = 0.33
 editor_draw_drag_margin = true

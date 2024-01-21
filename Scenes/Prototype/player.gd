@@ -36,13 +36,13 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move-left"):
 		direction.x -= .5
-		$Camera2D.position.x += 5
 	if Input.is_action_pressed("move-right"):
-		direction.x += .7
-		$Camera2D.position.x -= 7
+		direction.x += .5
 		
 	if direction != Vector2.ZERO:
 		velocity.x = direction.x * speed
+		#if direction.x < 0:
+			#$Camera2D.position.x -= direction.x * 10
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	

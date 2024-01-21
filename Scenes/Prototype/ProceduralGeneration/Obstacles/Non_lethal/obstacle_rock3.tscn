@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bthddbnt0ftn"]
+
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle.gd" id="1_0o3x0"]
+[ext_resource type="Texture2D" uid="uid://betaoc3purxvp" path="res://Art/environment/240116_Helloborus_rock03.png" id="1_6rogf"]
+
+[node name="Obstacle" type="StaticBody2D"]
+script = ExtResource("1_0o3x0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6rogf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.4, 0.4)
+polygon = PackedVector2Array(-307.5, 175, -292.5, 130, -315, -27.5, -277.5, -110, -240, -130, -215, -162.5, -100, -210, -80, -195, 80, -175, 262.5, -95, 315, -22.5, 282.5, 130, 302.5, 172.5)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -193.5)
+scale = Vector2(13, 26.45)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

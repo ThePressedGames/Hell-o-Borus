@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cuhmcb4asni72"]
 
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/background_element.gd" id="2_padga"]
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Background/background_element.gd" id="2_padga"]
 [ext_resource type="Texture2D" uid="uid://cf4grja1gsby7" path="res://Art/environment/240116_Helloborus_rock01.png" id="3_f7xji"]
 [ext_resource type="Texture2D" uid="uid://dim3w5qn1nvjy" path="res://Art/environment/240116_Helloborus_rock02.png" id="4_nw0xu"]
 [ext_resource type="Texture2D" uid="uid://betaoc3purxvp" path="res://Art/environment/240116_Helloborus_rock03.png" id="5_oatto"]
