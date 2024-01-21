@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://dt2xxmxru6wml"]
+
+[ext_resource type="Texture2D" uid="uid://dxnjkok0eniqx" path="res://Art/enemies/240119_Wings.png" id="1_47hd2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjgbp"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(26, 183, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya3es"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(138, 183, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpvux"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(250, 183, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpnk2"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(362, 183, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s0yh"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(26, 252, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2rwa"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(138, 252, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd5y3"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(250, 252, 101, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3drju"]
+atlas = ExtResource("1_47hd2")
+region = Rect2(362, 252, 101, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ql156"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjgbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya3es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpvux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpnk2")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_8s0yh")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_k2rwa")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_gd5y3")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3drju")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_k2rwa")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_gd5y3")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3drju")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_k2rwa")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_gd5y3")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3drju")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(191, 138)
+sprite_frames = SubResource("SpriteFrames_ql156")
