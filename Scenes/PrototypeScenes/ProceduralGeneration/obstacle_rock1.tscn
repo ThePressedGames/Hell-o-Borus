@@ -3,12 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cf4grja1gsby7" path="res://Art/environment/240116_Helloborus_rock01.png" id="1_junky"]
 
 [node name="Obstacle" type="StaticBody2D"]
-position = Vector2(1, -17)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_junky")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.4, 0.4)
 polygon = PackedVector2Array(-480, 160, -140, -110, 70, -180, 220, -150, 260, -60, 470, 170, -450, 170)

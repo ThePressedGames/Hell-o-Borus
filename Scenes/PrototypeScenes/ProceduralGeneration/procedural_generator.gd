@@ -46,11 +46,16 @@ var last_spawned_element_very_close_offset_x: int = 0
 var last_spawned_element_front_offset_x: int = 0
 
 # Obstacles variables
-@export_group("Obstacles")
-@export var ground_obstacles: Array[PackedScene]
-@export var obstacles_min_spawn_spacing = 200
-@export var obstacles_max_spawn_spacing = 600
-var last_spawned_obstacle_offset_x: int = 0
+@export_group("Obstacles", "obstacles_")
+@export var obstacles_ground: Array[PackedScene]
+@export var obstacles_min_spawn_interval: float = 0.5
+@export var obstacles_max_spawn_interval: float = 2
+
+
+func _ready():
+	$ObstacleSpawnTimer.wait_time = obstacles_min_spawn_interval
+	$ObstacleSpawnTimer.start()
+
 
 func _process(_delta):
 	var player_x = player.global_position.x
@@ -61,9 +66,6 @@ func _process(_delta):
 	
 	# Spawn background elements
 	spawn_background_elements(player_x)
-	
-	if player_x > last_spawned_obstacle_offset_x - obstacles_max_spawn_spacing:
-		spawn_obstacle()
 
 
 func spawn_terrain_block(x_offset: float):
@@ -111,10 +113,15 @@ func spawn_background_element_tree(layer: ParallaxLayer, x_offset: float, y_offs
 	return background_element_tree_instance
 
 
-func spawn_obstacle():
-	if !ground_obstacles.is_empty():
-		var obstacle_scene = ground_obstacles.pick_random()
-		var obstacle_instance = obstacle_scene.instantiate()
-		obstacle_instance.global_position = Vector2(last_spawned_obstacle_offset_x + randi_range(obstacles_min_spawn_spacing, obstacles_max_spawn_spacing), 400)
-		last_spawned_obstacle_offset_x = obstacle_instance.global_position.x
-		# print(obstacle_instance.position)
+func _on_obstacle_spawn_timer_timeout():
+	var obstacle_scene = obstacles_ground.pick_random()
+	var obstacle_instance = obstacle_scene.instantiate()
+	
+	var new_scale = randf_range(0.5, 1.5)
+	obstacle_instance.scale = Vector2(new_scale, new_scale)
+	
+	obstacle_instance.position.x = player.global_position.x + 1500
+	obstacle_instance.position.y = 600 + (50/obstacle_instance.scale.x)
+	print(str(obstacle_instance.position))
+	add_child(obstacle_instance)
+	$ObstacleSpawnTimer.wait_time = randf_range(obstacles_min_spawn_interval, obstacles_max_spawn_interval)

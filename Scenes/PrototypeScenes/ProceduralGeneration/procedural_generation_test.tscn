@@ -93,27 +93,12 @@ far_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer2_far")
 far_layer_offset_y = 200
 close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer3_close")
 close_layer_offset_y = 250
-very_close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer4_very_close")
+very_close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer4_very close")
 very_close_layer_offset_y = 450
 front_parallax_layer = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front")
 front_layer_offset_y = -1000
-ground_obstacles = Array[PackedScene]([ExtResource("3_l03qm")])
-
-[node name="Obstacle2" parent="." instance=ExtResource("3_l03qm")]
-position = Vector2(2314, 582)
-scale = Vector2(9.59, 9.59)
-
-[node name="Obstacle3" parent="." instance=ExtResource("3_l03qm")]
-position = Vector2(5093, 620)
-scale = Vector2(9.59, 9.59)
-
-[node name="Obstacle4" parent="." instance=ExtResource("3_l03qm")]
-position = Vector2(8303, 546)
-scale = Vector2(9.59, 9.59)
-
-[node name="Obstacle5" parent="." instance=ExtResource("3_l03qm")]
-position = Vector2(12078, 616)
-scale = Vector2(9.59, 9.59)
+obstacles_ground = Array[PackedScene]([ExtResource("3_l03qm")])
+obstacles_max_spawn_interval = 1.5
 
 [node name="ParallaxBackground2 (Foreground)" type="ParallaxBackground" parent="."]
 layer = 1

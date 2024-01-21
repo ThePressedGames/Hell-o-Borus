@@ -4,3 +4,8 @@
 
 [node name="ProceduralGenerator" type="Node2D"]
 script = ExtResource("1_656ed")
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
