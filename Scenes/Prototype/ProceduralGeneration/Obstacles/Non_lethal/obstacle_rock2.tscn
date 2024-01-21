@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://3edwepn5lj6q"]
 
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle.gd" id="1_eblq7"]
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle.gd" id="1_eblq7"]
 [ext_resource type="Texture2D" uid="uid://dim3w5qn1nvjy" path="res://Art/environment/240116_Helloborus_rock02.png" id="1_kqwvw"]
 
 [node name="Obstacle" type="StaticBody2D"]

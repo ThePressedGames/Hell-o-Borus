@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c86vd7k0csplr"]
 
 [ext_resource type="Texture2D" uid="uid://cctxnkfhwjyf8" path="res://Art/PrototypeSprites/sheet.png" id="1_cmcay"]
-[ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/PrototypeScenes/player.tscn" id="2_r5ms4"]
-[ext_resource type="PackedScene" uid="uid://dynt0p6l8287x" path="res://Scenes/PrototypeScenes/snail.tscn" id="3_q78w8"]
+[ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/Prototype/player.tscn" id="2_r5ms4"]
+[ext_resource type="PackedScene" uid="uid://dynt0p6l8287x" path="res://Scenes/Prototype/OLD/snail.tscn" id="3_q78w8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ol5bk"]
 texture = ExtResource("1_cmcay")

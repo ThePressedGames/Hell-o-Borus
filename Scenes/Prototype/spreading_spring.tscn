@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0cfwnwy52x8e"]
 
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/spreading_spring.gd" id="1_a744y"]
+[ext_resource type="Script" path="res://Scenes/Prototype/spreading_spring.gd" id="1_a744y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sov5u"]
 size = Vector2(3660, 2000)

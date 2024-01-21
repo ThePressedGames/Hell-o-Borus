@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkhwulrv82ib4"]
 
 [ext_resource type="Texture2D" uid="uid://tmvxy0jyfct0" path="res://Art/environment/240116_Helloborus_rock05.png" id="1_a5r1e"]
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle.gd" id="1_bnbvq"]
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle.gd" id="1_bnbvq"]
 
 [node name="Obstacle" type="StaticBody2D"]
 scale = Vector2(1.2, 1.2)

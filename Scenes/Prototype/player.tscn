@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2s6b21e0mdoq"]
 
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/player.gd" id="1_o78hj"]
+[ext_resource type="Script" path="res://Scenes/Prototype/player.gd" id="1_o78hj"]
 [ext_resource type="Texture2D" uid="uid://bnnno7ffah6jh" path="res://Art/PC/240117_Borus_sprite_sheet.png" id="2_ohqh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu505"]

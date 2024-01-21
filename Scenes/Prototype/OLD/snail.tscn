@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dynt0p6l8287x"]
 
 [ext_resource type="Texture2D" uid="uid://u26d3wilur1e" path="res://Art/PrototypeSprites/240113_Helloborus_test_sprites.png" id="1_y55bh"]
-[ext_resource type="Script" path="res://Scenes/PrototypeScenes/snail.gd" id="2_xwddi"]
+[ext_resource type="Script" path="res://Scenes/Prototype/OLD/snail.gd" id="2_xwddi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oro83"]
 atlas = ExtResource("1_y55bh")
