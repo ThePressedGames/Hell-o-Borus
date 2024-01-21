@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bthddbnt0ftn" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle_rock3.tscn" id="8_thus1"]
 [ext_resource type="PackedScene" uid="uid://1drub48tew75" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle_rock4.tscn" id="9_6ukbf"]
 [ext_resource type="PackedScene" uid="uid://bkhwulrv82ib4" path="res://Scenes/PrototypeScenes/ProceduralGeneration/obstacle_rock5.tscn" id="10_kt37t"]
+[ext_resource type="PackedScene" uid="uid://c0cfwnwy52x8e" path="res://Scenes/PrototypeScenes/spreading_spring.tscn" id="13_ixlb5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gxpgf"]
 size = Vector2(10000, 1000)
@@ -126,6 +127,10 @@ mesh = SubResource("QuadMesh_6n3c1")
 
 [node name="LethalObstacle" parent="." instance=ExtResource("8_81sax")]
 position = Vector2(1304, 641)
+
+[node name="SpreadingSpring" parent="." instance=ExtResource("13_ixlb5")]
+position = Vector2(-72, 49)
+speed = 900
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
