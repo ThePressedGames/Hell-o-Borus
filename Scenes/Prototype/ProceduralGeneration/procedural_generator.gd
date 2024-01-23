@@ -135,9 +135,7 @@ func _on_rock_spawn_timer_timeout():
 
 
 func _on_bird_spawn_timer_timeout():
-	print("KAAAAA")
 	var bird_instance = bird_scene.instantiate()
-	bird_instance.position.y = 400
-	bird_instance.position.x = player.global_position.x + 2000
+	bird_instance.position.x = player.global_position.x - 1500
 	add_child(bird_instance)
 	$BirdSpawnTimer.wait_time = randf_range(bird_min_spawn_interval, bird_max_spawn_interval)
