@@ -108,7 +108,7 @@ animation = &"run"
 frame_progress = 0.232974
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_bottom = 850
+limit_bottom = 800
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 1.0
