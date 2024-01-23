@@ -4,14 +4,16 @@
 
 [node name="ProceduralGenerator" type="Node2D"]
 script = ExtResource("1_656ed")
-bird_min_spawn_interval = null
-bird_max_spawn_interval = null
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 3.0
+
+[node name="HedgehogSpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_rock_spawn_timer_timeout"]
 [connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]
+[connection signal="timeout" from="HedgehogSpawnTimer" to="." method="_on_hedgehog_spawn_timer_timeout"]

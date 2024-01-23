@@ -70,11 +70,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_obstacle_body_entered(body):
-	
-	print("Obstacle name: " + body.name)
-	
+func _on_obstacle_body_entered(body):	
 	if body is LethalObstacle:
+		
+		if body.name == "HedgehogObstacle":
+			body.get_node("AnimatedSprite2D").play()
+		
 		print("Obstacle name: " + body.name)
 		position.y -= 40
 		set_process(false)

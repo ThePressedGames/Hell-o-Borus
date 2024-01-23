@@ -57,12 +57,19 @@ var last_spawned_element_front_offset_x: int = 0
 @export var bird_min_spawn_interval: float = 3
 @export var bird_max_spawn_interval: float = 6
 
+@export_subgroup("Hedgehog", "hedgehog_")
+@export var hedgehog_scene: PackedScene
+@export var hedgehog_min_spawn_interval: float = 4
+@export var hedgehog_max_spawn_interval: float = 8
+
 
 func _ready():
 	$ObstacleSpawnTimer.wait_time = rock_obstacle_min_spawn_interval
 	$ObstacleSpawnTimer.start()
 	$BirdSpawnTimer.wait_time = bird_min_spawn_interval
 	$BirdSpawnTimer.start()
+	$HedgehogSpawnTimer.wait_time = hedgehog_min_spawn_interval
+	$HedgehogSpawnTimer.start()
 
 
 func _process(_delta):
@@ -139,3 +146,11 @@ func _on_bird_spawn_timer_timeout():
 	bird_instance.position.x = player.global_position.x - 1500
 	add_child(bird_instance)
 	$BirdSpawnTimer.wait_time = randf_range(bird_min_spawn_interval, bird_max_spawn_interval)
+
+
+func _on_hedgehog_spawn_timer_timeout():
+	var hedgehog_instance = hedgehog_scene.instantiate()
+	hedgehog_instance.position.y = 650
+	hedgehog_instance.position.x = player.global_position.x + 2500
+	add_child(hedgehog_instance)
+	$HedgehogSpawnTimer.wait_time = randf_range(hedgehog_min_spawn_interval, hedgehog_max_spawn_interval)

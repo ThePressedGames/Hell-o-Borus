@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dobs3g4f3pr3e"]
+
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/hedgehog_obstacle.gd" id="1_c34lx"]
+[ext_resource type="Texture2D" uid="uid://bj5mdh2nmo7p1" path="res://Art/enemies/240121_hedgehog.png" id="1_ihxfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuvfy"]
+atlas = ExtResource("1_ihxfm")
+region = Rect2(14, 0, 582, 326)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ud3b"]
+atlas = ExtResource("1_ihxfm")
+region = Rect2(597, 0, 582, 326)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0vey"]
+atlas = ExtResource("1_ihxfm")
+region = Rect2(1180, 0, 582, 326)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6u6fc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuvfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ud3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0vey")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HedgehogObstacle" type="StaticBody2D"]
+scale = Vector2(0.6, 0.6)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_c34lx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6u6fc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-153, 129, -189, -17, -146, -77, -64, -132, 42, -113, 185, -49, 219, -18, 189, 137)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
