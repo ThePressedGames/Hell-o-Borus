@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle.gd" id="1_uv0n5"]
 
 [node name="Obstacle" type="StaticBody2D"]
+collision_mask = 2
 script = ExtResource("1_uv0n5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

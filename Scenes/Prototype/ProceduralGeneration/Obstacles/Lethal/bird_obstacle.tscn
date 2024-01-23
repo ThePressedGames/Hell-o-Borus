@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ftf2gp81px1e"]
 
-[ext_resource type="Texture2D" uid="uid://iowkd0p1o2ej" path="res://Art/enemies/240119_Wings.png" id="1_47hd2"]
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/bird_obstacle.gd" id="1_6fyat"]
+[ext_resource type="Texture2D" uid="uid://bi50vhm3uu84n" path="res://Art/enemies/240119_Wings.png" id="1_47hd2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjgbp"]
 atlas = ExtResource("1_47hd2")
@@ -84,6 +85,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms7ll"]
+size = Vector2(99, 21)
+
+[node name="BirdObstacle" type="StaticBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_6fyat")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ql156")
+frame_progress = 0.223057
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -6)
+shape = SubResource("RectangleShape2D_ms7ll")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.5, -153.333)
+scale = Vector2(4.95, 72.1667)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

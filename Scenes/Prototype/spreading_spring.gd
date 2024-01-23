@@ -1,4 +1,4 @@
-extends Area2D
+extends LethalObstacle
 
 
 @export var speed:int = 400

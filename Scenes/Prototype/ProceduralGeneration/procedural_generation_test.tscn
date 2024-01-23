@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bthddbnt0ftn" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle_rock3.tscn" id="8_thus1"]
 [ext_resource type="PackedScene" uid="uid://1drub48tew75" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle_rock4.tscn" id="9_6ukbf"]
 [ext_resource type="PackedScene" uid="uid://bkhwulrv82ib4" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle_rock5.tscn" id="10_kt37t"]
+[ext_resource type="PackedScene" uid="uid://ftf2gp81px1e" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/bird_obstacle.tscn" id="11_ytcj6"]
 [ext_resource type="PackedScene" uid="uid://c0cfwnwy52x8e" path="res://Scenes/Prototype/spreading_spring.tscn" id="13_ixlb5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gxpgf"]
@@ -103,8 +104,10 @@ very_close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer4_very 
 very_close_layer_offset_y = 450
 front_parallax_layer = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front")
 front_layer_offset_y = -1000
-obstacles_ground = Array[PackedScene]([ExtResource("3_l03qm"), ExtResource("7_37v55"), ExtResource("8_thus1"), ExtResource("9_6ukbf"), ExtResource("10_kt37t")])
-obstacles_max_spawn_interval = 1.5
+rock_obstacle_list = Array[PackedScene]([ExtResource("3_l03qm"), ExtResource("7_37v55"), ExtResource("8_thus1"), ExtResource("9_6ukbf"), ExtResource("10_kt37t")])
+bird_scene = ExtResource("11_ytcj6")
+bird_min_spawn_interval = 3.0
+bird_max_spawn_interval = 6.0
 
 [node name="ParallaxBackground2 (Foreground)" type="ParallaxBackground" parent="."]
 layer = 1
@@ -132,6 +135,4 @@ position = Vector2(1304, 641)
 position = Vector2(-72, 49)
 speed = 900
 
-[connection signal="hit" from="Player" to="." method="_game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="body_entered" from="LethalObstacle" to="Player" method="_on_obstacle_body_entered"]

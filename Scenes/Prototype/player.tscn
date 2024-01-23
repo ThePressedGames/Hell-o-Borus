@@ -87,8 +87,12 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbb0j"]
+size = Vector2(58, 80)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(576, -32)
+collision_layer = 2
 script = ExtResource("1_o78hj")
 speed = 800.0
 jump_velocity = -800.0
@@ -112,3 +116,13 @@ drag_top_margin = 0.7
 drag_right_margin = 0.0
 drag_bottom_margin = 0.33
 editor_draw_drag_margin = true
+
+[node name="PlayerObstacleDetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2DCopy" type="CollisionShape2D" parent="PlayerObstacleDetectionArea"]
+position = Vector2(-1, -3)
+shape = SubResource("RectangleShape2D_pbb0j")
+
+[connection signal="body_entered" from="PlayerObstacleDetectionArea" to="." method="_on_obstacle_body_entered"]

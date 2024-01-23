@@ -46,15 +46,23 @@ var last_spawned_element_very_close_offset_x: int = 0
 var last_spawned_element_front_offset_x: int = 0
 
 # Obstacles variables
-@export_group("Obstacles", "obstacles_")
-@export var obstacles_ground: Array[PackedScene]
-@export var obstacles_min_spawn_interval: float = 0.5
-@export var obstacles_max_spawn_interval: float = 2
+@export_group("Obstacles")
+@export_subgroup("Rocks", "rock_obstacle_")
+@export var rock_obstacle_list: Array[PackedScene]
+@export var rock_obstacle_min_spawn_interval: float = 0.5
+@export var rock_obstacle_max_spawn_interval: float = 2
+
+@export_subgroup("Bird", "bird_")
+@export var bird_scene: PackedScene
+@export var bird_min_spawn_interval: float = 3
+@export var bird_max_spawn_interval: float = 6
 
 
 func _ready():
-	$ObstacleSpawnTimer.wait_time = obstacles_min_spawn_interval
+	$ObstacleSpawnTimer.wait_time = rock_obstacle_min_spawn_interval
 	$ObstacleSpawnTimer.start()
+	$BirdSpawnTimer.wait_time = bird_min_spawn_interval
+	$BirdSpawnTimer.start()
 
 
 func _process(_delta):
@@ -113,8 +121,8 @@ func spawn_background_element_tree(layer: ParallaxLayer, x_offset: float, y_offs
 	return background_element_tree_instance
 
 
-func _on_obstacle_spawn_timer_timeout():
-	var obstacle_scene = obstacles_ground.pick_random()
+func _on_rock_spawn_timer_timeout():
+	var obstacle_scene = rock_obstacle_list.pick_random()
 	var obstacle_instance = obstacle_scene.instantiate()
 	
 	var new_scale = randf_range(0.5, 1.5)
@@ -123,4 +131,13 @@ func _on_obstacle_spawn_timer_timeout():
 	obstacle_instance.position.x = player.global_position.x + 2000
 	obstacle_instance.position.y = 600 + (50/obstacle_instance.scale.x)
 	add_child(obstacle_instance)
-	$ObstacleSpawnTimer.wait_time = randf_range(obstacles_min_spawn_interval, obstacles_max_spawn_interval)
+	$ObstacleSpawnTimer.wait_time = randf_range(rock_obstacle_min_spawn_interval, rock_obstacle_max_spawn_interval)
+
+
+func _on_bird_spawn_timer_timeout():
+	print("KAAAAA")
+	var bird_instance = bird_scene.instantiate()
+	bird_instance.position.y = 400
+	bird_instance.position.x = player.global_position.x + 2000
+	add_child(bird_instance)
+	$BirdSpawnTimer.wait_time = randf_range(bird_min_spawn_interval, bird_max_spawn_interval)

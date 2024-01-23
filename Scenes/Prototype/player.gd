@@ -58,7 +58,7 @@ func _physics_process(delta):
 	
 	# Slow down ascension when jump button in released mid-jump
 	if Input.is_action_just_released("jump") and velocity.y < 0:
-		print("Slow down!")
+		#print("Slow down!")
 		velocity.y = velocity.y * .2
 	
 	if jump_buffer_time_counter > 0:
@@ -73,10 +73,14 @@ func _physics_process(delta):
 
 
 func _on_obstacle_body_entered(body):
-	#print("Obstacle hit!")
-	position.y -= 40
-	set_process(false)
-	set_physics_process(false)
-	$AnimatedSprite2D.animation = "death"
 	
-	hit.emit()
+	print("Obstacle name: " + body.name)
+	
+	if body is LethalObstacle:
+		print("Obstacle name: " + body.name)
+		position.y -= 40
+		set_process(false)
+		set_physics_process(false)
+		$AnimatedSprite2D.animation = "death"
+		
+		hit.emit()
