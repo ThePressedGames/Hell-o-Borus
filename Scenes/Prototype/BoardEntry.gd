@@ -8,9 +8,9 @@ var player_score = "0000"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_labels()
+	update_labels(player_name, player_score)
 
 
-func update_labels():
-	name_label.text = "%s" % player_name
-	score_label.text = "%s" % player_score
+func update_labels(name: String, score: String):
+	name_label.text = "%s" % name
+	score_label.text = "%s" % score

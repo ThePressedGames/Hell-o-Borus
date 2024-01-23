@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvirx2k4b34u7"]
+[gd_scene load_steps=2 format=3 uid="uid://bvirx2k4b34u7"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/hud.gd" id="1_oq8vo"]
-[ext_resource type="PackedScene" uid="uid://sxa4ohwebo68" path="res://Scenes/Prototype/BoardEntry.tscn" id="2_rcrao"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_oq8vo")
@@ -72,18 +71,9 @@ layout_mode = 0
 offset_left = 25.0
 offset_top = 109.0
 offset_right = 893.0
-offset_bottom = 338.0
+offset_bottom = 320.0
 
 [node name="PlayersList" type="VBoxContainer" parent="ScorePanel/ScrollContainer"]
-layout_mode = 2
-
-[node name="BoardEntry" parent="ScorePanel/ScrollContainer/PlayersList" instance=ExtResource("2_rcrao")]
-layout_mode = 2
-
-[node name="BoardEntry2" parent="ScorePanel/ScrollContainer/PlayersList" instance=ExtResource("2_rcrao")]
-layout_mode = 2
-
-[node name="BoardEntry3" parent="ScorePanel/ScrollContainer/PlayersList" instance=ExtResource("2_rcrao")]
 layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="ScorePanel"]
@@ -113,13 +103,4 @@ theme_override_font_sizes/font_size = 30
 text = "Leaderboard"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="ScorePanel"]
-layout_mode = 0
-offset_left = 924.0
-offset_top = 287.0
-offset_right = 1018.0
-offset_bottom = 331.0
-text = "TEST"
-
 [connection signal="pressed" from="LineEdit/Button" to="." method="save_score_lw"]
-[connection signal="pressed" from="ScorePanel/Button" to="." method="_testino_pane_vino"]

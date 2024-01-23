@@ -7,7 +7,8 @@ func _ready():
 	SilentWolf.configure({
 		"api_key": "lb6MlBbxsM5CkXwPi710p7pCzWeDVExd3TIjymaa",
 		"game_id": "Hell-o-borus",
-		"log_level": 1
+		"game_version": "0.1",
+		"log_level": 0
 	})
 
 	# TODO: Questo rimanda ad una scena particolare quando chiudi la leaderboard, mandare a main menu
