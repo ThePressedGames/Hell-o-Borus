@@ -131,4 +131,5 @@ mesh = SubResource("QuadMesh_6n3c1")
 position = Vector2(-72, 49)
 
 [connection signal="hit" from="Player" to="." method="_game_over"]
+[connection signal="hit" from="Player" to="SpreadingSpring" method="_on_player_hit"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
