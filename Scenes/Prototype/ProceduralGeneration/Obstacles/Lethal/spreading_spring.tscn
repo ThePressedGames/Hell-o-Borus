@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0cfwnwy52x8e"]
 
-[ext_resource type="Script" path="res://Scenes/Prototype/spreading_spring.gd" id="1_a744y"]
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/spreading_spring.gd" id="1_a744y"]
 [ext_resource type="Texture2D" uid="uid://w0mtcyhl8ldv" path="res://Art/enemies/240121_spring/240121_spring01.png" id="2_s3rly"]
 [ext_resource type="Texture2D" uid="uid://dehxtsmpg6n2d" path="res://Art/enemies/240121_spring/240121_spring02.png" id="3_sw8kd"]
 [ext_resource type="Texture2D" uid="uid://b6wum0tqfiy2l" path="res://Art/enemies/240121_spring/240121_spring03.png" id="4_ude2y"]

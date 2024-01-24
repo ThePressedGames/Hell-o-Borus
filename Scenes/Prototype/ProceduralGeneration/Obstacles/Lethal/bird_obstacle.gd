@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends LethalObstacle
 
 
 @export var max_height = 250

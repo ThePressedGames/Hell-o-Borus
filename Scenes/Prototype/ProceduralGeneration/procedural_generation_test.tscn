@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bkhwulrv82ib4" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle_rock5.tscn" id="10_kt37t"]
 [ext_resource type="PackedScene" uid="uid://ftf2gp81px1e" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/bird_obstacle.tscn" id="11_ytcj6"]
 [ext_resource type="PackedScene" uid="uid://dobs3g4f3pr3e" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/hedgehog_obstacle.tscn" id="12_2ae4p"]
-[ext_resource type="PackedScene" uid="uid://c0cfwnwy52x8e" path="res://Scenes/Prototype/spreading_spring.tscn" id="13_ixlb5"]
+[ext_resource type="PackedScene" uid="uid://c0cfwnwy52x8e" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/spreading_spring.tscn" id="13_ixlb5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gxpgf"]
 size = Vector2(10000, 1000)
