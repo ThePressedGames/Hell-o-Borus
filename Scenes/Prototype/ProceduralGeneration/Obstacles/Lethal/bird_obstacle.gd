@@ -1,4 +1,4 @@
-extends LethalObstacle
+extends StaticBody2D
 
 
 @export var max_height = 250
@@ -22,6 +22,10 @@ func _process(delta):
 	
 	position.y += direction.y * delta * y_speed
 	position.x += delta * x_speed
+
+
+func update_speed(speed_modifier: float):
+	x_speed *= speed_modifier
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

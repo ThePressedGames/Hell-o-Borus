@@ -90,7 +90,6 @@ scale = Vector2(5, 5)
 
 [node name="Player" parent="." instance=ExtResource("1_eob2c")]
 position = Vector2(640, 610)
-score_distance = 1000
 
 [node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player", "very_far_parallax_layer", "far_parallax_layer", "close_parallax_layer", "very_close_parallax_layer", "front_parallax_layer") instance=ExtResource("2_uajhw")]
 player = NodePath("../Player")
@@ -132,6 +131,9 @@ mesh = SubResource("QuadMesh_6n3c1")
 [node name="SpreadingSpring" parent="." instance=ExtResource("13_ixlb5")]
 position = Vector2(-72, 49)
 
+[connection signal="speed_modifier_update" from="." to="Player" method="_on_main_scene_speed_modifier_update"]
+[connection signal="speed_modifier_update" from="." to="ProceduralGenerator" method="_on_main_scene_speed_modifier_update"]
+[connection signal="speed_modifier_update" from="." to="SpreadingSpring" method="_on_main_scene_speed_modifier_update"]
 [connection signal="hit" from="Player" to="." method="_game_over"]
 [connection signal="hit" from="Player" to="SpreadingSpring" method="_on_player_hit"]
 [connection signal="score_distance_up" from="Player" to="." method="_on_player_score_distance_up"]

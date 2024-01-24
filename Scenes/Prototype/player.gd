@@ -4,8 +4,8 @@ extends CharacterBody2D
 signal hit
 signal score_distance_up
 
-@export var speed = 300.0
-@export var jump_velocity = -400.0
+@export var speed = 800.0
+@export var jump_velocity = -800.0
 @export var falling_velocity_multiplier: float = 4
 # Coyote effect
 @export var hang_time: float = .3
@@ -14,9 +14,11 @@ var hang_time_counter: float
 @export var jump_buffer_time: float = .3
 var jump_buffer_time_counter: float
 
-@export var score_distance:int = 100
+@export var score_distance:int = 1000
 var starting_score_position
 var score_position_counter
+
+var difficulty_speed_modifier:float = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,7 +30,7 @@ func _ready():
 
 
 func _process(delta):
-	position.x += delta * speed
+	position.x += delta * speed * difficulty_speed_modifier
 
 
 func _physics_process(delta):
@@ -46,9 +48,9 @@ func _physics_process(delta):
 		direction.x += .25
 		
 	if direction != Vector2.ZERO:
-		velocity.x = direction.x * speed
+		velocity.x = direction.x * speed * difficulty_speed_modifier
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, speed * difficulty_speed_modifier)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -79,12 +81,10 @@ func _physics_process(delta):
 	if (score_position_counter - starting_score_position) > score_distance:
 		starting_score_position += score_distance
 		score_distance_up.emit()
-	
 
 
-func _on_obstacle_body_entered(body):	
+func _on_obstacle_body_entered(body):
 	if body is LethalObstacle:
-		
 		if body.name == "HedgehogObstacle":
 			body.get_node("AnimatedSprite2D").play()
 		
@@ -95,3 +95,8 @@ func _on_obstacle_body_entered(body):
 		$AnimatedSprite2D.animation = "death"
 		
 		hit.emit()
+
+
+func _on_main_scene_speed_modifier_update(speed_modifier: float):
+	print("Player speed up!")
+	difficulty_speed_modifier = speed_modifier 

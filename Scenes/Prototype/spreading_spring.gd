@@ -2,6 +2,7 @@ extends LethalObstacle
 
 
 @export var speed:int = 850
+var difficulty_speed_modifier:float = 1
 @export var acceleration_speed:int = 200
 @export var min_acceleration_interval:float = 6.0
 @export var max_acceleration_interval:float = 10.0
@@ -15,14 +16,14 @@ func _ready():
 
 
 func _process(delta):
-	position.x = position.x + (delta * speed)
+	position.x = position.x + (delta * speed * difficulty_speed_modifier)
 	
 	if acceleration_cooldown_counter > 0:
 		acceleration_cooldown_counter -= delta
 	
 	if acceleration_cooldown_counter < 0:
 		acceleration_cooldown_counter = 0.0
-		speed -= acceleration_speed
+		speed -= acceleration_speed * difficulty_speed_modifier
 		reset_acceleration_timer()
 	
 
@@ -39,6 +40,11 @@ func _on_player_hit():
 
 
 func on_acceleration_timer_timeout():
-	speed += acceleration_speed
+	speed += acceleration_speed * difficulty_speed_modifier
 	acceleration_cooldown_counter = acceleration_cooldown
 	$AccelerationTimer.stop()
+
+
+func _on_main_scene_speed_modifier_update(speed_modifier: float):
+	print("Spring speed up!")
+	difficulty_speed_modifier = speed_modifier
