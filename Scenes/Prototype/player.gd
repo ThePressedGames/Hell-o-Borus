@@ -24,11 +24,17 @@ var difficulty_speed_modifier:float = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export_group("Audio")
+@export var ready_sounds:Array[AudioStreamMP3]
 @export var jump_sounds:Array[AudioStreamMP3]
+@export var death_sounds:Array[AudioStreamMP3]
 
 
 func _ready():
 	$AnimatedSprite2D.play()
+	var ready_sfx = ready_sounds.pick_random()
+	$AudioStreamPlayer.stream = ready_sfx
+	$AudioStreamPlayer.play()
+	
 	starting_score_position = global_position.x
 
 
@@ -101,6 +107,9 @@ func _on_obstacle_body_entered(body):
 		set_process(false)
 		set_physics_process(false)
 		$AnimatedSprite2D.animation = "death"
+		var death_sfx = death_sounds.pick_random()
+		$AudioStreamPlayer.stream = death_sfx
+		$AudioStreamPlayer.play()
 		
 		hit.emit()
 
