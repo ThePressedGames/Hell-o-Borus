@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [node name="HedgehogObstacle" type="StaticBody2D"]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_c34lx")
