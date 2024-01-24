@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/bird_obstacle.gd" id="1_6fyat"]
 [ext_resource type="Texture2D" uid="uid://bi50vhm3uu84n" path="res://Art/enemies/240119_Wings.png" id="1_47hd2"]
+[ext_resource type="AudioStream" uid="uid://c30f6tarf8ll" path="res://Audio/sfx/Incoming Bird_01.mp3" id="2_sp01o"]
+[ext_resource type="AudioStream" uid="uid://dhm8bfm5wr5s3" path="res://Audio/sfx/Incoming Bird_02.mp3" id="3_2icqu"]
+[ext_resource type="AudioStream" uid="uid://dhmd6n0tw3v0a" path="res://Audio/sfx/Incoming Bird_05.mp3" id="4_7vsr8"]
+[ext_resource type="AudioStream" uid="uid://bl0ylg875vxuk" path="res://Audio/sfx/Incoming Bird_06.mp3" id="5_bwsrx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjgbp"]
 atlas = ExtResource("1_47hd2")
@@ -93,6 +97,7 @@ scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_6fyat")
+spawn_sounds = Array[AudioStreamMP3]([ExtResource("2_sp01o"), ExtResource("3_2icqu"), ExtResource("4_7vsr8"), ExtResource("5_bwsrx")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -107,4 +112,7 @@ shape = SubResource("RectangleShape2D_ms7ll")
 position = Vector2(-1.5, -153.333)
 scale = Vector2(4.95, 72.1667)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
