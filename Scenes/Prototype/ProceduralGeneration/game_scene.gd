@@ -15,13 +15,19 @@ func _ready():
 	#SilentWolf.configure_scores({
 		#"open_scene_on_close": "res://scenes/MainPage.tscn"
 	#})
-	$ScoreTimer.start()
+	#$ScoreTimer.start()
 
 func _game_over():
-	$ScoreTimer.stop()
+	#$ScoreTimer.stop()
 	$HUD.show_game_over_message()
 
 
 func _on_score_timer_timeout():
+	#score += 1
+	#$HUD.update_score(score)
+	pass
+
+
+func _on_player_score_distance_up():
 	score += 1
 	$HUD.update_score(score)

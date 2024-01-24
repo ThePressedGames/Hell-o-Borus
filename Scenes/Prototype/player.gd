@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal hit
+signal score_distance_up
 
 @export var speed = 300.0
 @export var jump_velocity = -400.0
@@ -13,12 +14,17 @@ var hang_time_counter: float
 @export var jump_buffer_time: float = .3
 var jump_buffer_time_counter: float
 
+@export var score_distance:int = 100
+var starting_score_position
+var score_position_counter
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready():
 	$AnimatedSprite2D.play()
+	starting_score_position = global_position.x
 
 
 func _process(delta):
@@ -68,6 +74,12 @@ func _physics_process(delta):
 		jump_buffer_time_counter = 0
 	
 	move_and_slide()
+	
+	score_position_counter = global_position.x	
+	if (score_position_counter - starting_score_position) > score_distance:
+		starting_score_position += score_distance
+		score_distance_up.emit()
+	
 
 
 func _on_obstacle_body_entered(body):	
