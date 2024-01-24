@@ -2,16 +2,16 @@ extends LethalObstacle
 
 
 @export var max_height = 250
-@export var min_height = 450
+@export var min_height = 460
 @export var y_speed = 300
-@export var x_speed = 1500
+@export var x_speed = 1250
 var direction = Vector2(1, 1)
 
 
 func _ready():
 	$AnimatedSprite2D.play()
 	position.y = randf_range(max_height, min_height)
-	x_speed = randf_range(x_speed - 200, x_speed + 200)
+	x_speed = randf_range(x_speed - 50, x_speed + 50)
 
 
 func _process(delta):
