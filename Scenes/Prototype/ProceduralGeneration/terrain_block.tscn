@@ -9,6 +9,7 @@ size = Vector2(800, 50)
 size = Vector2(800, 50)
 
 [node name="TerrainBlock" type="StaticBody2D"]
+z_index = 2
 scale = Vector2(4, 4)
 script = ExtResource("1_jumic")
 

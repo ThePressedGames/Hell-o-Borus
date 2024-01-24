@@ -21,7 +21,6 @@ func _process(delta):
 		acceleration_cooldown_counter -= delta
 	
 	if acceleration_cooldown_counter < 0:
-		print("SPRING SLOW")
 		acceleration_cooldown_counter = 0.0
 		speed -= acceleration_speed
 		reset_acceleration_timer()
@@ -40,7 +39,6 @@ func _on_player_hit():
 
 
 func on_acceleration_timer_timeout():
-	print("SPRING FAST")
 	speed += acceleration_speed
 	acceleration_cooldown_counter = acceleration_cooldown
 	$AccelerationTimer.stop()
