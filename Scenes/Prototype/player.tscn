@@ -1,7 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2s6b21e0mdoq"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/player.gd" id="1_o78hj"]
+[ext_resource type="AudioStream" uid="uid://bb7ds5dqsugx6" path="res://Audio/sfx/Jump_01.mp3" id="2_3ux7y"]
 [ext_resource type="Texture2D" uid="uid://bnnno7ffah6jh" path="res://Art/PC/240117_Borus_sprite_sheet.png" id="2_ohqh4"]
+[ext_resource type="AudioStream" uid="uid://u227vw4e3m6u" path="res://Audio/sfx/Jump_02.mp3" id="3_0yhwg"]
+[ext_resource type="AudioStream" uid="uid://bptlxpn3yyec4" path="res://Audio/sfx/Death vs Bird_01.mp3" id="3_7rfjk"]
+[ext_resource type="AudioStream" uid="uid://dap1minbhmlq8" path="res://Audio/sfx/Jump_03.mp3" id="4_bss3r"]
+[ext_resource type="AudioStream" uid="uid://d4nopjl8r63dc" path="res://Audio/sfx/Jump_04.mp3" id="5_8n38t"]
+[ext_resource type="AudioStream" uid="uid://cnewuq6p5m8d6" path="res://Audio/sfx/Jump_05.mp3" id="6_7n7vb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu505"]
 size = Vector2(58, 80)
@@ -94,8 +100,7 @@ size = Vector2(58, 80)
 position = Vector2(576, -32)
 collision_layer = 2
 script = ExtResource("1_o78hj")
-speed = 800.0
-jump_velocity = -800.0
+jump_sounds = Array[AudioStreamMP3]([ExtResource("2_3ux7y"), ExtResource("3_0yhwg"), ExtResource("4_bss3r"), ExtResource("5_8n38t"), ExtResource("6_7n7vb")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -3)
@@ -124,5 +129,8 @@ collision_mask = 4
 [node name="CollisionShape2DCopy" type="CollisionShape2D" parent="PlayerObstacleDetectionArea"]
 position = Vector2(-1, -3)
 shape = SubResource("RectangleShape2D_pbb0j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7rfjk")
 
 [connection signal="body_entered" from="PlayerObstacleDetectionArea" to="." method="_on_obstacle_body_entered"]

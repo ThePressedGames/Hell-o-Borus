@@ -23,6 +23,9 @@ var difficulty_speed_modifier:float = 1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export_group("Audio")
+@export var jump_sounds:Array[AudioStreamMP3]
+
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -72,7 +75,12 @@ func _physics_process(delta):
 	
 	if jump_buffer_time_counter > 0 and hang_time_counter > 0:
 		velocity.y = jump_velocity
+		
 		$AnimatedSprite2D.animation = "jump"
+		var jump_sfx = jump_sounds.pick_random()
+		$AudioStreamPlayer.stream = jump_sfx
+		$AudioStreamPlayer.play()
+		
 		jump_buffer_time_counter = 0
 	
 	move_and_slide()
