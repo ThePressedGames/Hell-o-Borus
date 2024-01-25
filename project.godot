@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hell o' Borus"
-run/main_scene="res://Scenes/Prototype/ProceduralGeneration/procedural_generation_test.tscn"
+run/main_scene="res://Scenes/Prototype/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

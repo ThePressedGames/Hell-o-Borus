@@ -5,14 +5,16 @@ func _ready():
 	$GameOverLabel.hide()
 	$LineEdit.hide()
 	$ScorePanel.hide()
+	$RetryButton.hide()
 
 func update_score(score: int):
-	$ScoreValue.text = str(score)
+	$ScoreContainer/ScoreValue.text = str(score)
 	
 
 func show_game_over_message():
 	$GameOverLabel.show()
 	$LineEdit.show()
+	$RetryButton.show()
 	
 func _testino_pane_vino():
 	print("TEST")
@@ -37,7 +39,7 @@ func save_score_lw():
 	var player_name = $LineEdit.text
 	# If not empty (other sanitization are handled by LineEdit
 	if player_name != "":
-		var score = int($ScoreValue.text)
+		var score = int($ScoreContainer/ScoreValue.text)
 		var sw_result: Dictionary = await SilentWolf.Scores.save_score(player_name, score).sw_save_score_complete
 		#print("Score persisted successfully: " + str(sw_result.score_id))
 
@@ -63,3 +65,7 @@ func save_score_lw():
 		$ScorePanel.show()
 
 
+
+
+func _on_retry_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Prototype/ProceduralGeneration/game_scene.tscn")

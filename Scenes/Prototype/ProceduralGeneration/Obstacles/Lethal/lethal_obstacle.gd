@@ -1,2 +1,2 @@
 class_name LethalObstacle
-extends Node2D
+extends StaticBody2D

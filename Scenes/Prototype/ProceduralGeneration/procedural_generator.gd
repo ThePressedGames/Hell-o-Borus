@@ -1,7 +1,8 @@
-@tool
 extends Node2D
 
 @export var player: Player
+
+var difficulty_speed_modifier:float = 1
 
 # Ground blocks variables
 var terrain_bottom_limit = 800
@@ -144,6 +145,7 @@ func _on_rock_spawn_timer_timeout():
 func _on_bird_spawn_timer_timeout():
 	var bird_instance = bird_scene.instantiate()
 	bird_instance.position.x = player.global_position.x - 1500
+	bird_instance.update_speed(difficulty_speed_modifier)
 	add_child(bird_instance)
 	$BirdSpawnTimer.wait_time = randf_range(bird_min_spawn_interval, bird_max_spawn_interval)
 
@@ -154,3 +156,8 @@ func _on_hedgehog_spawn_timer_timeout():
 	hedgehog_instance.position.x = player.global_position.x + 2500
 	add_child(hedgehog_instance)
 	$HedgehogSpawnTimer.wait_time = randf_range(hedgehog_min_spawn_interval, hedgehog_max_spawn_interval)
+
+
+func _on_main_scene_speed_modifier_update(speed_modifier: float):
+	print("Birds speed up!")
+	difficulty_speed_modifier = speed_modifier
