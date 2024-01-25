@@ -45,6 +45,7 @@ var last_spawned_element_close_offset_x: int = 0
 @export var very_close_layer_max_spacing_x = 500
 var last_spawned_element_very_close_offset_x: int = 0
 @export_subgroup("Parallax layer FRONT", "front_")
+@export var front_parallax_layer_snow_packs: ParallaxLayer
 @export var front_parallax_layer: ParallaxLayer
 @export var front_layer_offset_y = -980
 @export var front_layer_min_spacing_x = 400
@@ -80,7 +81,8 @@ func _ready():
 	
 	var player_x = player.global_position.x
 	for index in range(0, 10):
-		spawn_snow_pack(very_close_parallax_layer_snow_packs, player_x - index * 100)
+		spawn_snow_pack(very_close_parallax_layer_snow_packs, player_x - index * 100, 730)
+		spawn_snow_pack(front_parallax_layer_snow_packs, player_x - index * 100, -705)
 
 
 func _process(_delta):
@@ -122,7 +124,7 @@ func spawn_background_elements(player_x: float):
 		var element = spawn_background_element_tree(close_parallax_layer, last_spawned_element_close_offset_x, close_layer_offset_y)
 		last_spawned_element_close_offset_x = element.calculate_next_offset(last_spawned_element_close_offset_x, close_layer_min_spacing_x, close_layer_max_spacing_x)
 	# Very close layer - snow packs
-	spawn_snow_pack(very_close_parallax_layer_snow_packs, player_x)
+	spawn_snow_pack(very_close_parallax_layer_snow_packs, player_x, 730)
 	# Very close layer
 	if player_x > last_spawned_element_very_close_offset_x:
 		var element = spawn_background_element_tree(very_close_parallax_layer, last_spawned_element_very_close_offset_x, very_close_layer_offset_y)
@@ -132,13 +134,15 @@ func spawn_background_elements(player_x: float):
 		var element = spawn_background_element_tree(front_parallax_layer, last_spawned_element_front_offset_x, front_layer_offset_y)
 		last_spawned_element_front_offset_x = element.calculate_next_offset(last_spawned_element_front_offset_x, front_layer_min_spacing_x, front_layer_max_spacing_x)
 		# Front layer - terrain
-	if player_x > last_spawned_terrain_block_front_offset_x:
-		var block = spawn_background_terrain_block(front_parallax_layer, last_spawned_terrain_block_front_offset_x, -460)
-		last_spawned_terrain_block_front_offset_x = block.position.x + 1000
+	#if player_x > last_spawned_terrain_block_front_offset_x:
+		#var block = spawn_background_terrain_block(front_parallax_layer, last_spawned_terrain_block_front_offset_x, -460)
+		#last_spawned_terrain_block_front_offset_x = block.position.x + 1000
+	# Front layer - snow packs
+	spawn_snow_pack(front_parallax_layer_snow_packs, player_x, -700)
 
-func spawn_snow_pack(layer: ParallaxLayer, player_x_position: float):
+func spawn_snow_pack(layer: ParallaxLayer, player_x_position: float, y_offset: float):
 	var snow_pack_instance = background_snow_pack.instantiate()
-	snow_pack_instance.position = Vector2(player_x_position, 730)
+	snow_pack_instance.position = Vector2(player_x_position, y_offset)
 	layer.add_child(snow_pack_instance)
 	layer.move_child(snow_pack_instance, 0)
 

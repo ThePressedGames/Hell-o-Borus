@@ -84,7 +84,7 @@ scale = Vector2(5, 5)
 [node name="Player" parent="." instance=ExtResource("1_eob2c")]
 position = Vector2(640, 610)
 
-[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player", "very_far_parallax_layer", "far_parallax_layer", "close_parallax_layer", "very_close_parallax_layer_snow_packs", "very_close_parallax_layer", "front_parallax_layer") instance=ExtResource("2_uajhw")]
+[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player", "very_far_parallax_layer", "far_parallax_layer", "close_parallax_layer", "very_close_parallax_layer_snow_packs", "very_close_parallax_layer", "front_parallax_layer_snow_packs", "front_parallax_layer") instance=ExtResource("2_uajhw")]
 player = NodePath("../Player")
 very_far_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer1_very_far")
 very_far_layer_min_spacing_x = 100
@@ -96,6 +96,7 @@ close_layer_offset_y = 250
 very_close_parallax_layer_snow_packs = NodePath("../ParallaxBackground/ParallaxLayer4_very close_snow_packs")
 very_close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer4_very close")
 very_close_layer_offset_y = 450
+front_parallax_layer_snow_packs = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front_snow_packs")
 front_parallax_layer = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front")
 rock_obstacle_list = Array[PackedScene]([ExtResource("3_l03qm"), ExtResource("7_37v55"), ExtResource("8_thus1"), ExtResource("9_6ukbf"), ExtResource("10_kt37t")])
 bird_scene = ExtResource("11_ytcj6")
@@ -104,6 +105,12 @@ hedgehog_scene = ExtResource("12_2ae4p")
 
 [node name="ParallaxBackground2 (Foreground)" type="ParallaxBackground" parent="."]
 layer = 1
+
+[node name="ParallaxLayer5_front_snow_packs" type="ParallaxLayer" parent="ParallaxBackground2 (Foreground)"]
+modulate = Color(0.803922, 0.803922, 0.803922, 1)
+position = Vector2(0, 5000)
+scale = Vector2(6, 6)
+motion_scale = Vector2(2, 1)
 
 [node name="ParallaxLayer5_front" type="ParallaxLayer" parent="ParallaxBackground2 (Foreground)"]
 modulate = Color(0.803922, 0.803922, 0.803922, 1)
