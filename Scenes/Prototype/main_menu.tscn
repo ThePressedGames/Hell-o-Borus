@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://l2efqt1iq1hf"]
+[gd_scene load_steps=10 format=3 uid="uid://l2efqt1iq1hf"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/main_menu.gd" id="1_w3r7p"]
 [ext_resource type="Texture2D" uid="uid://dsyx4xct3c6fl" path="res://Art/menu/240123_Menu_without buttons.jpg" id="1_wyb4j"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvv8tl32xb635" path="res://Art/menu/button audio off.png" id="5_xbufo"]
 [ext_resource type="Texture2D" uid="uid://722uwixlk8o" path="res://Art/menu/button audio on.png" id="6_olius"]
 [ext_resource type="StyleBox" uid="uid://dr30l16i13aby" path="res://Art/panel_bg.tres" id="8_efmii"]
+[ext_resource type="Script" path="res://Scenes/Prototype/SoundButton.gd" id="8_f0bkm"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -53,8 +54,10 @@ offset_right = 1079.0
 offset_bottom = 102.0
 theme_override_icons/checked = ExtResource("6_olius")
 theme_override_icons/unchecked = ExtResource("5_xbufo")
+script = ExtResource("8_f0bkm")
 
 [node name="LeaderboardPanel" type="Panel" parent="."]
+visible = false
 modulate = Color(0.811765, 0.886275, 1, 1)
 layout_mode = 0
 offset_left = 215.0
@@ -128,4 +131,5 @@ text = "X"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="SoundButton" to="SoundButton" method="_on_pressed"]
 [connection signal="pressed" from="LeaderboardPanel/CloseButton" to="." method="_on_leaderboard_close_button_pressed"]
