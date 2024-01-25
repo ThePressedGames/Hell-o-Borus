@@ -1,0 +1,25 @@
+[gd_scene load_steps=19 format=3 uid="uid://c1f61c1cuatd1"]
+
+[ext_resource type="Texture2D" uid="uid://dbjvgoe7ars2e" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 17.png" id="1_si5nn"]
+[ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Background/background_element.gd" id="1_u1rv2"]
+[ext_resource type="Texture2D" uid="uid://dh1qyheoxhthw" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 01.png" id="3_7tllv"]
+[ext_resource type="Texture2D" uid="uid://b5ew4kw0nr54r" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 02.png" id="4_x1apb"]
+[ext_resource type="Texture2D" uid="uid://cs8hatbctb6lr" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 03.png" id="5_8khie"]
+[ext_resource type="Texture2D" uid="uid://4822f5yrdjc0" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 04.png" id="6_op7mt"]
+[ext_resource type="Texture2D" uid="uid://dnnip7yvtxlv4" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 05.png" id="7_dwbn4"]
+[ext_resource type="Texture2D" uid="uid://djbodx013rcgt" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 06.png" id="8_mlhpo"]
+[ext_resource type="Texture2D" uid="uid://h84hkgt5sl3b" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 07.png" id="9_wwjx0"]
+[ext_resource type="Texture2D" uid="uid://crml6q2xu48ek" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 08.png" id="10_hsxlq"]
+[ext_resource type="Texture2D" uid="uid://7nqqq3n62y7y" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 09.png" id="11_vstk0"]
+[ext_resource type="Texture2D" uid="uid://ckglpak4feytc" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 10.png" id="12_qmeiw"]
+[ext_resource type="Texture2D" uid="uid://c4mu3fwryr13y" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 11.png" id="13_yuok2"]
+[ext_resource type="Texture2D" uid="uid://brai74mpho44d" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 12.png" id="14_ivew0"]
+[ext_resource type="Texture2D" uid="uid://crs8meo8648hr" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 13.png" id="15_66uos"]
+[ext_resource type="Texture2D" uid="uid://n4y7vwmlj3k8" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 14.png" id="16_lk7rr"]
+[ext_resource type="Texture2D" uid="uid://dlaugimvb3exv" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 15.png" id="17_t1f6i"]
+[ext_resource type="Texture2D" uid="uid://co1on654y6f2i" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 16.png" id="18_wnchy"]
+
+[node name="SnowPack" type="Sprite2D"]
+texture = ExtResource("1_si5nn")
+script = ExtResource("1_u1rv2")
+element_sprites = Array[Texture2D]([ExtResource("3_7tllv"), ExtResource("4_x1apb"), ExtResource("5_8khie"), ExtResource("6_op7mt"), ExtResource("7_dwbn4"), ExtResource("8_mlhpo"), ExtResource("9_wwjx0"), ExtResource("10_hsxlq"), ExtResource("11_vstk0"), ExtResource("12_qmeiw"), ExtResource("13_yuok2"), ExtResource("14_ivew0"), ExtResource("15_66uos"), ExtResource("16_lk7rr"), ExtResource("17_t1f6i"), ExtResource("18_wnchy"), ExtResource("1_si5nn")])

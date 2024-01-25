@@ -73,6 +73,10 @@ position = Vector2(3838, -1123)
 scale = Vector2(11692, 5982)
 texture = SubResource("GradientTexture2D_nisbd")
 
+[node name="ParallaxLayer4_very close_snow_packs" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -2900)
+scale = Vector2(5, 5)
+
 [node name="ParallaxLayer4_very close" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -2900)
 scale = Vector2(5, 5)
@@ -80,7 +84,7 @@ scale = Vector2(5, 5)
 [node name="Player" parent="." instance=ExtResource("1_eob2c")]
 position = Vector2(640, 610)
 
-[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player", "very_far_parallax_layer", "far_parallax_layer", "close_parallax_layer", "very_close_parallax_layer", "front_parallax_layer") instance=ExtResource("2_uajhw")]
+[node name="ProceduralGenerator" parent="." node_paths=PackedStringArray("player", "very_far_parallax_layer", "far_parallax_layer", "close_parallax_layer", "very_close_parallax_layer_snow_packs", "very_close_parallax_layer", "front_parallax_layer") instance=ExtResource("2_uajhw")]
 player = NodePath("../Player")
 very_far_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer1_very_far")
 very_far_layer_min_spacing_x = 100
@@ -89,10 +93,10 @@ far_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer2_far")
 far_layer_offset_y = 200
 close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer3_close")
 close_layer_offset_y = 250
+very_close_parallax_layer_snow_packs = NodePath("../ParallaxBackground/ParallaxLayer4_very close_snow_packs")
 very_close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer4_very close")
 very_close_layer_offset_y = 450
 front_parallax_layer = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front")
-front_layer_offset_y = -1000
 rock_obstacle_list = Array[PackedScene]([ExtResource("3_l03qm"), ExtResource("7_37v55"), ExtResource("8_thus1"), ExtResource("9_6ukbf"), ExtResource("10_kt37t")])
 bird_scene = ExtResource("11_ytcj6")
 bird_min_spawn_interval = 4.0

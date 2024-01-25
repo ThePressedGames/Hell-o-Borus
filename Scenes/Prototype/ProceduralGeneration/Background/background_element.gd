@@ -3,19 +3,24 @@ extends Sprite2D
 
 
 # Array with all the possible textures that a background element can have
-@export var sprites: Array[Texture2D]
+@export var element_sprites: Array[Texture2D]
+@export var snow_packs_sprites: Array[Texture2D]
 
 
 func _ready():
-	if !sprites.is_empty():
+	if !element_sprites.is_empty():
 		# Randomize texture
-		var random_sprite = sprites.pick_random()
+		var random_sprite = element_sprites.pick_random()
 		texture = random_sprite
+		
+		if not snow_packs_sprites.is_empty():
+			var random_snow_sprite = snow_packs_sprites.pick_random()
+			$SnowPackSprite.texture = random_snow_sprite
 
 
 func update_position(x_offset: float, y_offset: float):
 	position.x = x_offset
-	global_position.y = y_offset + randf_range(0, 50)
+	position.y = y_offset + randf_range(0, 20)
 
 
 func calculate_next_offset(current_offset: float, min_spacing: int, max_spacing: int):
