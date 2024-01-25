@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjb7ngh581t61"]
+
+[ext_resource type="AudioStream" uid="uid://cyowhsmfkytvy" path="res://Audio/music/helloborus_loop.wav" id="1_nxdag"]
+[ext_resource type="Script" path="res://Scenes/Prototype/music.gd" id="2_owaej"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_nxdag")
+script = ExtResource("2_owaej")
