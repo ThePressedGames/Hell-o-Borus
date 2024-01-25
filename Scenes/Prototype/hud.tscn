@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvirx2k4b34u7"]
+[gd_scene load_steps=3 format=3 uid="uid://bvirx2k4b34u7"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/hud.gd" id="1_oq8vo"]
+[ext_resource type="StyleBox" uid="uid://dr30l16i13aby" path="res://Art/panel_bg.tres" id="2_xp3rk"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_oq8vo")
@@ -50,6 +51,7 @@ offset_left = 415.0
 offset_top = 233.0
 offset_right = 737.0
 offset_bottom = 291.0
+theme_override_styles/normal = ExtResource("2_xp3rk")
 placeholder_text = "Your name..."
 alignment = 1
 max_length = 12
@@ -61,6 +63,7 @@ offset_left = 189.0
 offset_top = 66.0
 offset_right = 320.0
 offset_bottom = 97.0
+theme_override_styles/normal = ExtResource("2_xp3rk")
 text = "Submit score"
 
 [node name="ScorePanel" type="Panel" parent="."]
@@ -70,6 +73,7 @@ offset_left = 215.0
 offset_top = 234.0
 offset_right = 947.0
 offset_bottom = 572.0
+theme_override_styles/panel = ExtResource("2_xp3rk")
 
 [node name="LeaderboardLabel" type="Label" parent="ScorePanel"]
 layout_mode = 1
@@ -132,6 +136,7 @@ offset_top = 432.0
 offset_right = 1140.0
 offset_bottom = 498.0
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_xp3rk")
 text = "Try again!"
 
 [node name="BackButton" type="Button" parent="."]
@@ -141,6 +146,7 @@ offset_top = 505.0
 offset_right = 1140.0
 offset_bottom = 571.0
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_xp3rk")
 text = "To menu"
 
 [connection signal="pressed" from="LineEdit/Button" to="." method="save_score_lw"]

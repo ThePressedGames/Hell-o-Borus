@@ -9,11 +9,13 @@ theme_override_constants/separation = 410
 script = ExtResource("1_hh2ux")
 
 [node name="NameLabel" type="Label" parent="."]
+modulate = Color(0.917647, 0.737255, 0.0862745, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Name"
 
 [node name="ScoreLabel" type="Label" parent="."]
+modulate = Color(0.917647, 0.737255, 0.0862745, 1)
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 10

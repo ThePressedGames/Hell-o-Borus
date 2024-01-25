@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://l2efqt1iq1hf"]
+[gd_scene load_steps=9 format=3 uid="uid://l2efqt1iq1hf"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/main_menu.gd" id="1_w3r7p"]
 [ext_resource type="Texture2D" uid="uid://dsyx4xct3c6fl" path="res://Art/menu/240123_Menu_without buttons.jpg" id="1_wyb4j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2k2mqtc66fhg" path="res://Art/menu/240123_main menu button-03.png" id="4_jgakl"]
 [ext_resource type="Texture2D" uid="uid://bvv8tl32xb635" path="res://Art/menu/button audio off.png" id="5_xbufo"]
 [ext_resource type="Texture2D" uid="uid://722uwixlk8o" path="res://Art/menu/button audio on.png" id="6_olius"]
+[ext_resource type="StyleBox" uid="uid://dr30l16i13aby" path="res://Art/panel_bg.tres" id="8_efmii"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -60,6 +61,7 @@ offset_left = 215.0
 offset_top = 234.0
 offset_right = 947.0
 offset_bottom = 572.0
+theme_override_styles/panel = ExtResource("8_efmii")
 
 [node name="LeaderboardLabel" type="Label" parent="LeaderboardPanel"]
 layout_mode = 1
@@ -121,6 +123,7 @@ offset_left = 712.0
 offset_top = -12.0
 offset_right = 742.0
 offset_bottom = 19.0
+theme_override_styles/normal = ExtResource("8_efmii")
 text = "X"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
