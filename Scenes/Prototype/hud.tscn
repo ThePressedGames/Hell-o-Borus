@@ -5,25 +5,23 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_oq8vo")
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreContainer" type="HBoxContainer" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_right = 35.0
+offset_left = -576.0
+offset_right = 576.0
 offset_bottom = 83.0
 grow_horizontal = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "SCORE:"
 
-[node name="ScoreValue" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 44.0
-offset_right = 209.0
-offset_bottom = 83.0
-grow_horizontal = 2
+[node name="ScoreValue" type="Label" parent="ScoreContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "0"
 
@@ -33,14 +31,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -185.0
-offset_right = 180.0
-offset_bottom = -102.0
+offset_left = -576.0
+offset_top = -213.0
+offset_right = 576.0
+offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "GAME OVER!"
+horizontal_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
 offset_left = 415.0
@@ -120,4 +119,13 @@ grow_vertical = 0
 [node name="PlayersList" type="VBoxContainer" parent="ScorePanel/ScrollContainer"]
 layout_mode = 2
 
+[node name="RetryButton" type="Button" parent="."]
+offset_left = 906.0
+offset_top = 83.0
+offset_right = 1052.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 42
+text = "RETRY!"
+
 [connection signal="pressed" from="LineEdit/Button" to="." method="save_score_lw"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
