@@ -5,7 +5,7 @@ signal hit
 signal score_distance_up
 
 @export var speed = 800.0
-@export var jump_velocity = -800.0
+@export var jump_velocity = -1500.0
 @export var falling_velocity_multiplier: float = 4
 # Coyote effect
 @export var hang_time: float = .3
@@ -68,7 +68,7 @@ func _physics_process(delta):
 	
 	# Handle jump.
 	# When jump button is pressed, start a time buffer to make the player jump as soon as he can
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		jump_buffer_time_counter = jump_buffer_time
 	
 	# Slow down ascension when jump button in released mid-jump
@@ -83,15 +83,19 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 		
 		$AnimatedSprite2D.animation = "jump"
-		var jump_sfx = jump_sounds.pick_random()
-		$AudioStreamPlayer.stream = jump_sfx
-		$AudioStreamPlayer.play()
+		
+		# Play jump sfx only 33% of the times
+		if randi_range(0, 9) < 3:
+			var jump_sfx = jump_sounds.pick_random()
+			$AudioStreamPlayer.stream = jump_sfx
+			$AudioStreamPlayer.play()
+			print("Jump sfx PLAY")
 		
 		jump_buffer_time_counter = 0
 	
 	move_and_slide()
 	
-	score_position_counter = global_position.x	
+	score_position_counter = global_position.x
 	if (score_position_counter - starting_score_position) > score_distance:
 		starting_score_position += score_distance
 		score_distance_up.emit()
