@@ -6,6 +6,7 @@ func _ready():
 	$LineEdit.hide()
 	$ScorePanel.hide()
 	$RetryButton.hide()
+	$BackButton.hide()
 
 func update_score(score: int):
 	$ScoreContainer/ScoreValue.text = str(score)
@@ -15,25 +16,12 @@ func show_game_over_message():
 	$GameOverLabel.show()
 	$LineEdit.show()
 	$RetryButton.show()
-	
-func _testino_pane_vino():
-	print("TEST")
-	SilentWolf.Scores.wipe_leaderboard()
-	# Load the board entry scene
-	#var board_entry = load("res://Scenes/BoardEntry.tscn")
-#	##await %ScorePanel/ScrollContainer/PlayersList.ready
-	## Create a new instance of the board entry scene
-	#var new_board_entry = board_entry.instantiate()
-#
-	## Set the text of the labels in the board entry scene
-	#new_board_entry.get_node("NameLabel").text = "Player Name"
-	#new_board_entry.get_node("ScoreLabel").text = "100"
+	$BackButton.show()
+	#
+#func _testino_pane_vino():
+	#print("TEST")
+	#SilentWolf.Scores.wipe_leaderboard()
 
-	# Add the new board entry to the playerslist container
-	#%ScorePanel.hide()
-	#var button_pck = preload("res://Scenes/PrototypeScenes/BoardEntry.tscn")
-	#var button = button_pck.instance()
-	#$ScorePanel/ScrollContainer/PlayersList.add_child(button)
 
 func save_score_lw():
 	var player_name = $LineEdit.text
@@ -69,3 +57,6 @@ func save_score_lw():
 
 func _on_retry_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Prototype/ProceduralGeneration/game_scene.tscn")
+	
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Prototype/main_menu.tscn")

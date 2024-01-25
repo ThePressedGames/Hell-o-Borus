@@ -30,7 +30,7 @@ func _on_leaderboard_button_pressed():
 		#new_board_entry.update_labels(p_name, str(p_score))
 		#new_board_entry.name_label = p_name
 		#new_board_entry.score_label = str(p_score)
-
+		
 		## Add the new board entry to the playerslist container
 		$LeaderboardPanel/ScrollContainer/PlayersList.add_child(new_board_entry)
 		new_board_entry.update_labels(p_name, str(p_score))
