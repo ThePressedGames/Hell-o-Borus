@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export var player: Player
@@ -12,6 +13,7 @@ var terrain_block: PackedScene = preload("res://Scenes/Prototype/ProceduralGener
 var last_spawned_terrain_block = 0
 
 # Background elements variables
+var background_terrain_block: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/background_terrain_block.tscn")
 var background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_tree.tscn")
 var background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_rock.tscn")
 @export_group("Background elements")
@@ -27,6 +29,7 @@ var last_spawned_element_very_far_offset_x: int = 0
 @export var far_layer_min_spacing_x = 100
 @export var far_layer_max_spacing_x = 400
 var last_spawned_element_far_offset_x: int = 0
+var last_spawned_terrain_block_far_offset_x: int = 0
 @export_subgroup("Parallax layer CLOSE", "close_")
 @export var close_parallax_layer: ParallaxLayer
 @export var close_layer_offset_y = 400
@@ -45,6 +48,7 @@ var last_spawned_element_very_close_offset_x: int = 0
 @export var front_layer_min_spacing_x = 400
 @export var front_layer_max_spacing_x = 900
 var last_spawned_element_front_offset_x: int = 0
+var last_spawned_terrain_block_front_offset_x: int = 0
 
 # Obstacles variables
 @export_group("Obstacles")
@@ -96,25 +100,40 @@ func spawn_terrain_block(x_offset: float):
 
 func spawn_background_elements(player_x: float):
 	# Very far layer
-	if player_x > last_spawned_element_very_far_offset_x - terrain_block_width:
+	if player_x > last_spawned_element_very_far_offset_x + 300:
 		var element = spawn_background_element_rock(very_far_parallax_layer, last_spawned_element_very_far_offset_x, very_far_layer_offset_y)
 		last_spawned_element_very_far_offset_x = element.calculate_next_offset(last_spawned_element_very_far_offset_x, very_far_layer_min_spacing_x, very_far_layer_max_spacing_x)
-	# Far layer
-	if player_x > last_spawned_element_far_offset_x - terrain_block_width:
+	# Far layer - terrain
+	if player_x > last_spawned_terrain_block_far_offset_x - 1000:
+		var block = spawn_background_terrain_block(far_parallax_layer, last_spawned_terrain_block_far_offset_x, 700)
+		last_spawned_terrain_block_far_offset_x = block.position.x + 1000
+	# Far layer - elements
+	if player_x > last_spawned_element_far_offset_x - 1200:
 		var element = spawn_background_element_tree(far_parallax_layer, last_spawned_element_far_offset_x, far_layer_offset_y)
 		last_spawned_element_far_offset_x = element.calculate_next_offset(last_spawned_element_far_offset_x, far_layer_min_spacing_x, far_layer_max_spacing_x)
 	# Close layer
-	if player_x > last_spawned_element_close_offset_x - terrain_block_width:
+	if player_x > last_spawned_element_close_offset_x - 300:
 		var element = spawn_background_element_tree(close_parallax_layer, last_spawned_element_close_offset_x, close_layer_offset_y)
 		last_spawned_element_close_offset_x = element.calculate_next_offset(last_spawned_element_close_offset_x, close_layer_min_spacing_x, close_layer_max_spacing_x)
 	# Very close layer
-	if player_x > last_spawned_element_very_close_offset_x - terrain_block_width:
+	if player_x > last_spawned_element_very_close_offset_x:
 		var element = spawn_background_element_tree(very_close_parallax_layer, last_spawned_element_very_close_offset_x, very_close_layer_offset_y)
 		last_spawned_element_very_close_offset_x = element.calculate_next_offset(last_spawned_element_very_close_offset_x, very_close_layer_min_spacing_x, very_close_layer_max_spacing_x)
 	# Front layer
-	if player_x > last_spawned_element_front_offset_x - terrain_block_width:
+	if player_x > last_spawned_element_front_offset_x:
 		var element = spawn_background_element_tree(front_parallax_layer, last_spawned_element_front_offset_x, front_layer_offset_y)
 		last_spawned_element_front_offset_x = element.calculate_next_offset(last_spawned_element_front_offset_x, front_layer_min_spacing_x, front_layer_max_spacing_x)
+		# Front layer - terrain
+	if player_x > last_spawned_terrain_block_front_offset_x:
+		var block = spawn_background_terrain_block(front_parallax_layer, last_spawned_terrain_block_front_offset_x, -460)
+		last_spawned_terrain_block_front_offset_x = block.position.x + 1000
+
+func spawn_background_terrain_block(layer: ParallaxLayer, x_offset: float, y_offset):
+	var background_terrain_block_instance = background_terrain_block.instantiate()
+	background_terrain_block_instance.position = Vector2(x_offset, y_offset)
+	layer.add_child(background_terrain_block_instance)
+	layer.move_child(background_terrain_block_instance, 0)
+	return background_terrain_block_instance
 
 func spawn_background_element_rock(layer: ParallaxLayer, x_offset: float, y_offset: float):
 	var background_element_rock_instance = background_element_rock.instantiate()
