@@ -196,5 +196,4 @@ func _on_hedgehog_spawn_timer_timeout():
 
 
 func _on_main_scene_speed_modifier_update(speed_modifier: float):
-	print("Birds speed up!")
 	difficulty_speed_modifier = speed_modifier

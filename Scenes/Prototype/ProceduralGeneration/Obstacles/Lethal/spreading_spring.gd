@@ -46,5 +46,4 @@ func on_acceleration_timer_timeout():
 
 
 func _on_main_scene_speed_modifier_update(speed_modifier: float):
-	print("Spring speed up!")
 	difficulty_speed_modifier = speed_modifier

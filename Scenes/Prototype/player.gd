@@ -89,7 +89,6 @@ func _physics_process(delta):
 			var jump_sfx = jump_sounds.pick_random()
 			$AudioStreamPlayer.stream = jump_sfx
 			$AudioStreamPlayer.play()
-			print("Jump sfx PLAY")
 		
 		jump_buffer_time_counter = 0
 	
@@ -119,5 +118,4 @@ func _on_obstacle_body_entered(body):
 
 
 func _on_main_scene_speed_modifier_update(speed_modifier: float):
-	print("Player speed up!")
 	difficulty_speed_modifier = speed_modifier 
