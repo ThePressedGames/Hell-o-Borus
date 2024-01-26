@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvp0r4r3oploy"]
+[gd_scene load_steps=3 format=3 uid="uid://db5gyad2ujl2e"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Background/background_terrain_block.gd" id="1_w52lq"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_w0nby"]
-size = Vector2(1000, 500)
+[ext_resource type="Texture2D" uid="uid://djsjc27ecwbi5" path="res://Art/Procedurally generated painting/ground copy.png" id="2_7ia0x"]
 
 [node name="BackgroundTerrainBlock" type="MeshInstance2D"]
 modulate = Color(0.894118, 0.85098, 0.960784, 1)
-mesh = SubResource("QuadMesh_w0nby")
 script = ExtResource("1_w52lq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(50, 25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7ia0x")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

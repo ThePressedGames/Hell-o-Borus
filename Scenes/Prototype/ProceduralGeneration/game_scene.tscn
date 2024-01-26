@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0dg3pmtl6x4h"]
+[gd_scene load_steps=16 format=3 uid="uid://c0dg3pmtl6x4h"]
 
 [ext_resource type="PackedScene" uid="uid://b2s6b21e0mdoq" path="res://Scenes/Prototype/player.tscn" id="1_eob2c"]
 [ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/game_scene.gd" id="1_m37u2"]
 [ext_resource type="Texture2D" uid="uid://iufwufgmk1ep" path="res://Art/environment/240115_background03.png" id="1_x83jg"]
-[ext_resource type="Shader" path="res://Scenes/Prototype/ProceduralGeneration/Background/blur.gdshader" id="2_e3yg1"]
 [ext_resource type="PackedScene" uid="uid://crjumbkujnhpg" path="res://Scenes/Prototype/ProceduralGeneration/procedural_generator.tscn" id="2_uajhw"]
 [ext_resource type="PackedScene" uid="uid://dwao3xt4s1f7l" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Non_lethal/obstacle_rock1.tscn" id="3_l03qm"]
 [ext_resource type="PackedScene" uid="uid://bvirx2k4b34u7" path="res://Scenes/Prototype/hud.tscn" id="6_4iccb"]
@@ -23,10 +22,6 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_qpfm8")
 width = 1
 height = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_naxab"]
-shader = ExtResource("2_e3yg1")
-shader_parameter/lod = 1.0
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_m37u2")
@@ -61,12 +56,6 @@ texture = SubResource("GradientTexture2D_nisbd")
 position = Vector2(100, -100)
 scale = Vector2(1.2, 1.2)
 motion_scale = Vector2(0.3, 0.2)
-
-[node name="Blur" type="Sprite2D" parent="ParallaxBackground"]
-material = SubResource("ShaderMaterial_naxab")
-position = Vector2(3838, -1123)
-scale = Vector2(11692, 5982)
-texture = SubResource("GradientTexture2D_nisbd")
 
 [node name="Atmosphere" type="Sprite2D" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.0705882)
@@ -129,7 +118,7 @@ motion_scale = Vector2(2, 1)
 [node name="HUD" parent="." instance=ExtResource("6_4iccb")]
 
 [node name="SpreadingSpring" parent="." instance=ExtResource("13_ixlb5")]
-position = Vector2(-72, 49)
+position = Vector2(-72, 54)
 speed = 870
 min_acceleration_interval = 5.0
 max_acceleration_interval = 8.0

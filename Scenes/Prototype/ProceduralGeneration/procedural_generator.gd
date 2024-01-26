@@ -17,6 +17,13 @@ var background_terrain_block: PackedScene = preload("res://Scenes/Prototype/Proc
 var background_snow_pack: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/snow_pack.tscn")
 var background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_tree.tscn")
 var background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_rock.tscn")
+
+# Background elements variables
+var blur_background_terrain_block: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_terrain_block.tscn")
+#var blur_background_snow_pack: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_snow_pack.tscn")
+var blur_background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_background_element_tree.tscn")
+var blur_background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_background_element_rock.tscn")
+
 @export_group("Background elements")
 @export_subgroup("Parallax layer VERY FAR", "very_far_")
 @export var very_far_parallax_layer: ParallaxLayer
@@ -154,13 +161,21 @@ func spawn_background_terrain_block(layer: ParallaxLayer, x_offset: float, y_off
 	return background_terrain_block_instance
 
 func spawn_background_element_rock(layer: ParallaxLayer, x_offset: float, y_offset: float):
-	var background_element_rock_instance = background_element_rock.instantiate()
+	var background_element_rock_instance
+	if layer in [very_far_parallax_layer]:
+		background_element_rock_instance = blur_background_element_rock.instantiate()
+	else:
+		background_element_rock_instance = background_element_rock.instantiate()
 	background_element_rock_instance.update_position(x_offset, y_offset)
 	layer.add_child(background_element_rock_instance)
 	return background_element_rock_instance
 
 func spawn_background_element_tree(layer: ParallaxLayer, x_offset: float, y_offset: float):
-	var background_element_tree_instance = background_element_tree.instantiate()
+	var background_element_tree_instance
+	if layer in [very_far_parallax_layer, far_parallax_layer, close_parallax_layer, front_parallax_layer]:
+		background_element_tree_instance = blur_background_element_tree.instantiate()
+	else:
+		background_element_tree_instance = background_element_tree.instantiate()
 	background_element_tree_instance.update_position(x_offset, y_offset)
 	layer.add_child(background_element_tree_instance)
 	return background_element_tree_instance
