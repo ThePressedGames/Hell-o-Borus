@@ -360,6 +360,7 @@ theme_override_styles/hover = ExtResource("16_0xsa6")
 text = "X"
 
 [node name="CreditsPanel" type="Panel" parent="."]
+visible = false
 modulate = Color(0.811765, 0.886275, 1, 1)
 layout_mode = 0
 offset_left = 261.0
@@ -446,8 +447,8 @@ volume_db = 8.0
 [connection signal="pressed" from="ButtonsVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonsVBoxContainer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="ButtonsVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="button_down" from="BorusInteraction" to="." method="_on_borus_interaction_button_down"]
-[connection signal="button_up" from="BorusInteraction" to="." method="_on_borus_interaction_button_up"]
+[connection signal="mouse_entered" from="BorusInteraction" to="." method="_on_borus_interaction_button_down"]
+[connection signal="mouse_exited" from="BorusInteraction" to="." method="_on_borus_interaction_button_up"]
 [connection signal="pressed" from="SoundButton" to="SoundButton" method="_on_pressed"]
 [connection signal="pressed" from="LeaderboardPanel/CloseButton" to="." method="_on_leaderboard_close_button_pressed"]
 [connection signal="pressed" from="CreditsPanel/CloseButton" to="." method="_on_credits_close_button_pressed"]
