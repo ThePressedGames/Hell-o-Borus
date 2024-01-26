@@ -28,8 +28,9 @@ element_sprites = Array[Texture2D]([ExtResource("1_6bkxk"), ExtResource("3_42irc
 snow_packs_sprites = Array[Texture2D]([ExtResource("4_v8o47"), ExtResource("5_qpo18"), ExtResource("6_4q5dh"), ExtResource("7_jno45"), ExtResource("8_8ldyc"), ExtResource("9_05cqh"), ExtResource("10_tyh88"), ExtResource("11_51j0x"), ExtResource("12_gtng7"), ExtResource("13_4ij3s"), ExtResource("14_fmsk0"), ExtResource("15_brnek"), ExtResource("16_1s142"), ExtResource("17_l1ni5"), ExtResource("18_ey4x4"), ExtResource("19_73sse"), ExtResource("20_8je7w")])
 
 [node name="SnowPackSprite" type="Sprite2D" parent="."]
+modulate = Color(1.1, 1.1, 1.1, 1)
 position = Vector2(0, 281)
-texture = ExtResource("14_fmsk0")
+texture = ExtResource("18_ey4x4")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.5, 4.49997)
