@@ -2,17 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://uxal20cnlmfl" path="res://Art/environment/240116_Helloborus_rock01 copy.png" id="2_fqlsk"]
 [ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Background/background_element.gd" id="2_wi8di"]
-[ext_resource type="Texture2D" uid="uid://cpbcg0iveisly" path="res://Art/environment/240116_Helloborus_rock02 copy.png" id="3_67kuv"]
-[ext_resource type="Texture2D" uid="uid://b3ksgr4yktv8v" path="res://Art/environment/240116_Helloborus_rock03 copy.png" id="4_nbx2w"]
-[ext_resource type="Texture2D" uid="uid://daeh3v8dgau6c" path="res://Art/environment/240116_Helloborus_rock04 copy.png" id="5_riujd"]
-[ext_resource type="Texture2D" uid="uid://du5og0ng1mvxo" path="res://Art/environment/240116_Helloborus_rock05 copy.png" id="6_jcai1"]
+[ext_resource type="Texture2D" uid="uid://b2kl5e555xjah" path="res://Art/environment/240116_Helloborus_mountain01.png" id="3_awv03"]
+[ext_resource type="Texture2D" uid="uid://t1tub33cofie" path="res://Art/environment/240116_Helloborus_mountain02.png" id="4_wfbvj"]
+[ext_resource type="Texture2D" uid="uid://c1st8debv3i77" path="res://Art/environment/240116_Helloborus_mountain03.png" id="5_eecyq"]
+[ext_resource type="Texture2D" uid="uid://cg5evufx0ca3m" path="res://Art/environment/240116_Helloborus_mountain04.png" id="6_lva8q"]
+[ext_resource type="Texture2D" uid="uid://c6dybvbboqsdb" path="res://Art/environment/240116_Helloborus_mountain05.png" id="7_2dnae"]
 [ext_resource type="Texture2D" uid="uid://b8dslbrmw535o" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 01 copy.png" id="7_agb11"]
 [ext_resource type="Texture2D" uid="uid://dcfihbyalt6jm" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 02 copy.png" id="8_1hdlm"]
 [ext_resource type="Texture2D" uid="uid://cdqusk6coqabt" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 03 copy.png" id="9_kfhse"]
 [ext_resource type="Texture2D" uid="uid://qg2rygy4mvdd" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 04 copy.png" id="10_xrbys"]
 [ext_resource type="Texture2D" uid="uid://bxs2pyln7o8e4" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 05 copy.png" id="11_moweh"]
 [ext_resource type="Texture2D" uid="uid://bij213kldfiud" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 06 copy.png" id="12_76h7q"]
-[ext_resource type="Texture2D" uid="uid://pu605bvrf8vi" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 06.png" id="12_fv1e4"]
 [ext_resource type="Texture2D" uid="uid://nfbyv8pq8pr7" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 07 copy.png" id="13_kaeoe"]
 [ext_resource type="Texture2D" uid="uid://bd7dkngwvg2jx" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 08 copy.png" id="14_vg5y4"]
 [ext_resource type="Texture2D" uid="uid://cju8t3d77q6cx" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 09 copy.png" id="15_hl0lb"]
@@ -26,14 +26,16 @@
 [ext_resource type="Texture2D" uid="uid://butpcpi14235d" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 17 copy.png" id="23_cg3kw"]
 
 [node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("2_fqlsk")
 script = ExtResource("2_wi8di")
-element_sprites = Array[Texture2D]([ExtResource("2_fqlsk"), ExtResource("3_67kuv"), ExtResource("4_nbx2w"), ExtResource("5_riujd"), ExtResource("6_jcai1")])
+element_sprites = Array[Texture2D]([ExtResource("3_awv03"), ExtResource("4_wfbvj"), ExtResource("5_eecyq"), ExtResource("6_lva8q"), ExtResource("7_2dnae")])
 snow_packs_sprites = Array[Texture2D]([ExtResource("7_agb11"), ExtResource("8_1hdlm"), ExtResource("9_kfhse"), ExtResource("10_xrbys"), ExtResource("11_moweh"), ExtResource("12_76h7q"), ExtResource("13_kaeoe"), ExtResource("14_vg5y4"), ExtResource("15_hl0lb"), ExtResource("16_wciue"), ExtResource("17_1uwaf"), ExtResource("18_3jp6s"), ExtResource("19_6a1yu"), ExtResource("20_qb7sk"), ExtResource("21_jxd81"), ExtResource("22_lh6gt"), ExtResource("23_cg3kw")])
 
 [node name="SnowPackSprite" type="Sprite2D" parent="."]
+modulate = Color(1.1, 1.1, 1.1, 1)
 position = Vector2(1.5, 74)
 scale = Vector2(1.57653, 1)
-texture = ExtResource("12_fv1e4")
+texture = ExtResource("22_lh6gt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.5, 4.49997)

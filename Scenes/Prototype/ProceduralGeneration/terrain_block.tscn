@@ -9,6 +9,7 @@ size = Vector2(800, 50)
 size = Vector2(800, 50)
 
 [node name="TerrainBlock" type="StaticBody2D"]
+modulate = Color(0.776471, 0.72549, 0.780392, 1)
 z_index = 2
 scale = Vector2(4, 4)
 script = ExtResource("1_jumic")
@@ -20,6 +21,7 @@ shape = SubResource("RectangleShape2D_e3sx1")
 mesh = SubResource("QuadMesh_i7unh")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 position = Vector2(0, -309.125)
 scale = Vector2(1, 13.365)
 rect = Rect2(-400, -25, 800, 50)

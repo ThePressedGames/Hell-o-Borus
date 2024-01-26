@@ -24,6 +24,9 @@ var background_element_rock: PackedScene = preload("res://Scenes/Prototype/Proce
 var blur_background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_background_element_tree.tscn")
 var blur_background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_background_element_rock.tscn")
 
+var very_far_background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/very_far_background_element_tree.tscn")
+
+
 @export_group("Background elements")
 @export_subgroup("Parallax layer VERY FAR", "very_far_")
 @export var very_far_parallax_layer: ParallaxLayer
@@ -172,7 +175,9 @@ func spawn_background_element_rock(layer: ParallaxLayer, x_offset: float, y_offs
 
 func spawn_background_element_tree(layer: ParallaxLayer, x_offset: float, y_offset: float):
 	var background_element_tree_instance
-	if layer in [very_far_parallax_layer, far_parallax_layer, close_parallax_layer, front_parallax_layer]:
+	if layer == far_parallax_layer:
+		background_element_tree_instance = very_far_background_element_tree.instantiate()
+	elif layer in [close_parallax_layer, front_parallax_layer]:
 		background_element_tree_instance = blur_background_element_tree.instantiate()
 	else:
 		background_element_tree_instance = background_element_tree.instantiate()
