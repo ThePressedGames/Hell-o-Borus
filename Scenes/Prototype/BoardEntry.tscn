@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://sxa4ohwebo68"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/BoardEntry.gd" id="1_hh2ux"]
+[ext_resource type="FontFile" uid="uid://b2clplrwcsnp7" path="res://Fonts/winter-coffee-font/WinterCoffee-OVDXp.ttf" id="2_nnp8p"]
 
 [node name="BoardEntry" type="HBoxContainer"]
 offset_right = 868.0
@@ -11,7 +12,8 @@ script = ExtResource("1_hh2ux")
 [node name="NameLabel" type="Label" parent="."]
 modulate = Color(0.917647, 0.737255, 0.0862745, 1)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_nnp8p")
+theme_override_font_sizes/font_size = 30
 text = "Name"
 
 [node name="ScoreLabel" type="Label" parent="."]
@@ -19,5 +21,6 @@ modulate = Color(0.917647, 0.737255, 0.0862745, 1)
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_nnp8p")
+theme_override_font_sizes/font_size = 30
 text = "Score"

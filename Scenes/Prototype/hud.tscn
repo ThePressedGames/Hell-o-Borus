@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvirx2k4b34u7"]
 
 [ext_resource type="Script" path="res://Scenes/Prototype/hud.gd" id="1_oq8vo"]
+[ext_resource type="FontFile" uid="uid://b2clplrwcsnp7" path="res://Fonts/winter-coffee-font/WinterCoffee-OVDXp.ttf" id="2_tldbt"]
 [ext_resource type="StyleBox" uid="uid://dr30l16i13aby" path="res://Art/panel_bg.tres" id="2_xp3rk"]
+[ext_resource type="StyleBox" uid="uid://bxij8on7ouubj" path="res://Art/panel_bg_hover.tres" id="4_womja"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_oq8vo")
@@ -19,12 +21,14 @@ alignment = 1
 [node name="ScoreLabel" type="Label" parent="ScoreContainer"]
 modulate = Color(0.811765, 0.886275, 1, 1)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tldbt")
 theme_override_font_sizes/font_size = 60
 text = "SCORE:"
 
 [node name="ScoreValue" type="Label" parent="ScoreContainer"]
 modulate = Color(0.811765, 0.886275, 1, 1)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tldbt")
 theme_override_font_sizes/font_size = 60
 text = "0"
 
@@ -41,6 +45,7 @@ offset_right = 576.0
 offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tldbt")
 theme_override_font_sizes/font_size = 60
 text = "GAME OVER!"
 horizontal_alignment = 1
@@ -51,6 +56,8 @@ offset_left = 415.0
 offset_top = 233.0
 offset_right = 737.0
 offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("2_xp3rk")
 placeholder_text = "Your name..."
 alignment = 1
@@ -63,7 +70,10 @@ offset_left = 189.0
 offset_top = 66.0
 offset_right = 320.0
 offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = ExtResource("2_xp3rk")
+theme_override_styles/hover = ExtResource("4_womja")
 text = "Submit score"
 
 [node name="ScorePanel" type="Panel" parent="."]
@@ -85,8 +95,9 @@ offset_top = 11.0
 offset_right = 457.0
 offset_bottom = 53.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
-text = "Leaderboard"
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 35
+text = "LEADERBOARD"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScorePanel"]
@@ -103,13 +114,15 @@ theme_override_constants/separation = 420
 
 [node name="NameLabel" type="Label" parent="ScorePanel/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 32
 text = "Name"
 
 [node name="ScoreLabel" type="Label" parent="ScorePanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 32
 text = "Score"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ScorePanel"]
@@ -135,8 +148,10 @@ offset_left = 956.0
 offset_top = 432.0
 offset_right = 1140.0
 offset_bottom = 498.0
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_xp3rk")
+theme_override_styles/hover = ExtResource("4_womja")
 text = "Try again!"
 
 [node name="BackButton" type="Button" parent="."]
@@ -145,8 +160,10 @@ offset_left = 956.0
 offset_top = 505.0
 offset_right = 1140.0
 offset_bottom = 571.0
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_tldbt")
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_xp3rk")
+theme_override_styles/hover = ExtResource("4_womja")
 text = "To menu"
 
 [connection signal="pressed" from="LineEdit/Button" to="." method="save_score_lw"]
