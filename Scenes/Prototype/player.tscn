@@ -12,7 +12,15 @@
 [ext_resource type="AudioStream" uid="uid://exdmbq2bwuel" path="res://Audio/sfx/Death vs Hedgehog_04.mp3" id="11_gd2ul"]
 [ext_resource type="AudioStream" uid="uid://dd5shlfq36fhy" path="res://Audio/sfx/Death vs Spring_04.mp3" id="12_b416s"]
 [ext_resource type="AudioStream" uid="uid://dt6hlr0xtjhpw" path="res://Audio/sfx/Death vs Spring_03.mp3" id="13_cqigx"]
+[ext_resource type="Texture2D" uid="uid://dfo21ykkhwwcg" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-1.png" id="13_nb76t"]
+[ext_resource type="Texture2D" uid="uid://coefunqwjxq3n" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-2.png" id="14_h6c4o"]
 [ext_resource type="AudioStream" uid="uid://cl6rpolpwiuhp" path="res://Audio/sfx/Death vs Spring_06.mp3" id="14_wyfn1"]
+[ext_resource type="Texture2D" uid="uid://d3vguhcamt481" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-3.png" id="15_e0l3b"]
+[ext_resource type="Texture2D" uid="uid://dvhash2gf6erb" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-4.png" id="16_j6a0r"]
+[ext_resource type="Texture2D" uid="uid://ce4p207h2fymr" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-5.png" id="17_buchr"]
+[ext_resource type="Texture2D" uid="uid://c2yai5qhclrmw" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-6.png" id="18_4352i"]
+[ext_resource type="Texture2D" uid="uid://bprm8ts4s6c7p" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-7.png" id="19_grpmr"]
+[ext_resource type="Texture2D" uid="uid://bvn7i0ipf1f5h" path="res://Art/PC/outro blooming/240117_Helloborus_Borus-8.png" id="20_lgxad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu505"]
 size = Vector2(58, 80)
@@ -68,7 +76,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bgpn7")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -96,6 +104,35 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("13_nb76t")
+}, {
+"duration": 0.7,
+"texture": ExtResource("14_h6c4o")
+}, {
+"duration": 0.7,
+"texture": ExtResource("15_e0l3b")
+}, {
+"duration": 0.9,
+"texture": ExtResource("16_j6a0r")
+}, {
+"duration": 1.1,
+"texture": ExtResource("17_buchr")
+}, {
+"duration": 1.3,
+"texture": ExtResource("18_4352i")
+}, {
+"duration": 2.0,
+"texture": ExtResource("19_grpmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_lgxad")
+}],
+"loop": false,
+"name": &"spring_death",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbb0j"]
@@ -118,8 +155,9 @@ shape = SubResource("RectangleShape2D_bu505")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_u65tg")
-animation = &"run"
-frame_progress = 0.232974
+animation = &"spring_death"
+frame = 7
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 800

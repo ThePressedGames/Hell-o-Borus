@@ -106,14 +106,20 @@ func _on_obstacle_body_entered(body):
 			body.get_node("AnimatedSprite2D").play()
 		
 		print("Obstacle name: " + body.name)
-		position.y -= 40
-		set_process(false)
-		set_physics_process(false)
-		$AnimatedSprite2D.animation = "death"
+		if body.name == "SpreadingSpring":
+			position.x -= 90
+			position.y = 600
+			$AnimatedSprite2D.animation = "spring_death"
+			$AnimatedSprite2D.z_index = 1
+		else:
+			position.y -= 40
+			$AnimatedSprite2D.animation = "death"
+		
 		var death_sfx = death_sounds.pick_random()
 		$AudioStreamPlayer.stream = death_sfx
 		$AudioStreamPlayer.play()
-		
+		set_process(false)
+		set_physics_process(false)
 		hit.emit()
 
 
