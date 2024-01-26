@@ -105,6 +105,8 @@ size = Vector2(58, 80)
 position = Vector2(576, -32)
 collision_layer = 2
 script = ExtResource("1_o78hj")
+hang_time = 0.1
+jump_buffer_time = 0.2
 ready_sounds = Array[AudioStreamMP3]([ExtResource("2_3i2kv"), ExtResource("3_f8uot"), ExtResource("4_3v3e7")])
 jump_sounds = Array[AudioStreamMP3]([ExtResource("4_bss3r"), ExtResource("6_7n7vb")])
 death_sounds = Array[AudioStreamMP3]([ExtResource("9_v1eh8"), ExtResource("11_gd2ul"), ExtResource("13_cqigx"), ExtResource("12_b416s"), ExtResource("14_wyfn1")])
@@ -139,5 +141,6 @@ shape = SubResource("RectangleShape2D_pbb0j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7rfjk")
+volume_db = 2.0
 
 [connection signal="body_entered" from="PlayerObstacleDetectionArea" to="." method="_on_obstacle_body_entered"]
