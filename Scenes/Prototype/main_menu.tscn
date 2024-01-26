@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cqy746whavb2u" path="res://Art/menu/button audio on.png" id="6_olius"]
 [ext_resource type="StyleBox" uid="uid://dr30l16i13aby" path="res://Art/panel_bg.tres" id="8_efmii"]
 [ext_resource type="Script" path="res://Scenes/Prototype/SoundButton.gd" id="8_f0bkm"]
+[ext_resource type="AudioStream" uid="uid://djic54ncvb7qx" path="res://Audio/sfx/click on borus on menu.wav" id="10_mlr3f"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -36,14 +37,17 @@ scale = Vector2(0.33, 0.33)
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("2_mewmp")
 
 [node name="LeaderboardButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("3_mkowb")
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("4_jgakl")
 
 [node name="SoundButton" type="CheckButton" parent="."]
@@ -52,6 +56,7 @@ offset_left = 1016.0
 offset_top = 40.0
 offset_right = 1079.0
 offset_bottom = 102.0
+focus_mode = 0
 theme_override_icons/checked = ExtResource("5_xbufo")
 theme_override_icons/unchecked = ExtResource("6_olius")
 script = ExtResource("8_f0bkm")
@@ -126,10 +131,25 @@ offset_left = 712.0
 offset_top = -12.0
 offset_right = 742.0
 offset_bottom = 19.0
+focus_mode = 0
 theme_override_styles/normal = ExtResource("8_efmii")
 text = "X"
+
+[node name="BorusInteraction" type="Button" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 272.0
+offset_right = 627.0
+offset_bottom = 370.0
+focus_mode = 0
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mlr3f")
+volume_db = 8.0
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="SoundButton" to="SoundButton" method="_on_pressed"]
 [connection signal="pressed" from="LeaderboardPanel/CloseButton" to="." method="_on_leaderboard_close_button_pressed"]
+[connection signal="button_down" from="BorusInteraction" to="." method="_on_borus_interaction_button_down"]

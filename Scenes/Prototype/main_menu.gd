@@ -39,3 +39,7 @@ func _on_leaderboard_button_pressed():
 
 func _on_leaderboard_close_button_pressed():
 	$LeaderboardPanel.hide()
+
+
+func _on_borus_interaction_button_down():
+	$AudioStreamPlayer.play()
