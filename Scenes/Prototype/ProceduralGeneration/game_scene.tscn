@@ -91,6 +91,7 @@ very_far_layer_min_spacing_x = 100
 very_far_layer_max_spacing_x = 400
 far_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer2_far")
 far_layer_offset_y = 200
+far_layer_min_spacing_x = 50
 close_parallax_layer = NodePath("../ParallaxBackground/ParallaxLayer3_close")
 close_layer_offset_y = 250
 very_close_parallax_layer_snow_packs = NodePath("../ParallaxBackground/ParallaxLayer4_very close_snow_packs")
@@ -99,9 +100,12 @@ very_close_layer_offset_y = 450
 front_parallax_layer_snow_packs = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front_snow_packs")
 front_parallax_layer = NodePath("../ParallaxBackground2 (Foreground)/ParallaxLayer5_front")
 rock_obstacle_list = Array[PackedScene]([ExtResource("3_l03qm"), ExtResource("7_37v55"), ExtResource("8_thus1"), ExtResource("9_6ukbf"), ExtResource("10_kt37t")])
+rock_obstacle_max_spawn_interval = 1.0
 bird_scene = ExtResource("11_ytcj6")
-bird_min_spawn_interval = 4.0
+bird_min_spawn_interval = 3.5
 hedgehog_scene = ExtResource("12_2ae4p")
+hedgehog_min_spawn_interval = 5.0
+hedgehog_max_spawn_interval = 7.0
 
 [node name="ParallaxBackground2 (Foreground)" type="ParallaxBackground" parent="."]
 layer = 1
@@ -124,6 +128,9 @@ motion_scale = Vector2(2, 1)
 
 [node name="SpreadingSpring" parent="." instance=ExtResource("13_ixlb5")]
 position = Vector2(-72, 49)
+speed = 870
+min_acceleration_interval = 5.0
+max_acceleration_interval = 8.0
 
 [connection signal="speed_modifier_update" from="." to="Player" method="_on_main_scene_speed_modifier_update"]
 [connection signal="speed_modifier_update" from="." to="ProceduralGenerator" method="_on_main_scene_speed_modifier_update"]
