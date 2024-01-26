@@ -34,6 +34,7 @@ func _on_player_score_distance_up():
 	$HUD.update_score(score)
 	
 	if (score % speed_modifier_interval) == 0:
+		#print("SPEED UP")
 		speed_modifier += speed_modifier_increase
 		speed_modifier_update.emit(speed_modifier)
 	
