@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://n4kru4dpen4p" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 17.png" id="23_bvsdy"]
 
 [node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("4_nw0xu")
 script = ExtResource("2_padga")
 element_sprites = Array[Texture2D]([ExtResource("3_f7xji"), ExtResource("4_nw0xu"), ExtResource("5_oatto"), ExtResource("6_10vhi"), ExtResource("7_um14t")])
 snow_packs_sprites = Array[Texture2D]([ExtResource("7_v853u"), ExtResource("8_e5l0f"), ExtResource("9_xgbo6"), ExtResource("10_opf60"), ExtResource("11_ai2re"), ExtResource("12_icume"), ExtResource("13_5j4kv"), ExtResource("14_1bu2q"), ExtResource("15_6n64m"), ExtResource("16_sk88c"), ExtResource("17_5e7sj"), ExtResource("18_4dj70"), ExtResource("19_r76cv"), ExtResource("20_r3qft"), ExtResource("21_hhunb"), ExtResource("22_nakq6"), ExtResource("23_bvsdy")])
@@ -32,7 +33,7 @@ snow_packs_sprites = Array[Texture2D]([ExtResource("7_v853u"), ExtResource("8_e5
 [node name="SnowPackSprite" type="Sprite2D" parent="."]
 position = Vector2(1.5, 74)
 scale = Vector2(1.57653, 1)
-texture = ExtResource("21_hhunb")
+texture = ExtResource("15_6n64m")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.5, 4.49997)

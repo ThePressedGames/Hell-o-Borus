@@ -16,7 +16,7 @@ func _ready():
 		if not snow_packs_sprites.is_empty():
 			var random_snow_sprite = snow_packs_sprites.pick_random()
 			$SnowPackSprite.texture = random_snow_sprite
-
+			$SnowPackSprite.modulate = Color(1.1,1.1,1.1)
 
 func update_position(x_offset: float, y_offset: float):
 	position.x = x_offset

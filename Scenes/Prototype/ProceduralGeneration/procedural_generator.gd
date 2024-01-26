@@ -19,7 +19,7 @@ var background_element_tree: PackedScene = preload("res://Scenes/Prototype/Proce
 var background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_element_rock.tscn")
 
 # Background elements variables
-var blur_background_terrain_block: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_terrain_block.tscn")
+#var blur_background_terrain_block: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/background_terrain_block.tscn")
 #var blur_background_snow_pack: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_snow_pack.tscn")
 var blur_background_element_tree: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_background_element_tree.tscn")
 var blur_background_element_rock: PackedScene = preload("res://Scenes/Prototype/ProceduralGeneration/Background/blur_background_element_rock.tscn")

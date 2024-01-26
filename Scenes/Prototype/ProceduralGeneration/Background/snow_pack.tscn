@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cyxdpo50jsujy" path="res://Art/Procedurally generated painting/240121_snow ground/240121_snow ground 16.png" id="18_wnchy"]
 
 [node name="SnowPack" type="Sprite2D"]
+modulate = Color(1.1, 1.1, 1.1, 1)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("9_wwjx0")
 script = ExtResource("1_u1rv2")

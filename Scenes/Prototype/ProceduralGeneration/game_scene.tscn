@@ -102,7 +102,7 @@ hedgehog_max_spawn_interval = 7.0
 layer = 1
 
 [node name="ParallaxLayer5_front_snow_packs" type="ParallaxLayer" parent="ParallaxBackground2 (Foreground)"]
-modulate = Color(0.803922, 0.803922, 0.803922, 1)
+modulate = Color(0.85098, 0.85098, 0.85098, 1)
 position = Vector2(0, 5000)
 scale = Vector2(6, 6)
 motion_scale = Vector2(2, 1)
