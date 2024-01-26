@@ -1,0 +1,78 @@
+[gd_scene load_steps=21 format=3 uid="uid://d4eftlw5q68ns"]
+
+[ext_resource type="Texture2D" uid="uid://bxb5ycylshufk" path="res://Art/intro/frames/1.png" id="1_ji52j"]
+[ext_resource type="Script" path="res://Scenes/Prototype/introduction.gd" id="2_stml1"]
+[ext_resource type="Texture2D" uid="uid://cnerwdhp1luqc" path="res://Art/intro/frames/2.png" id="3_wcoia"]
+[ext_resource type="Texture2D" uid="uid://dlii8govhq8s1" path="res://Art/intro/frames/3.png" id="4_62okd"]
+[ext_resource type="Texture2D" uid="uid://62683qdmpl0j" path="res://Art/intro/frames/4.png" id="5_77j4j"]
+[ext_resource type="Texture2D" uid="uid://b1efmve87o77" path="res://Art/intro/frames/5.png" id="6_ir156"]
+[ext_resource type="Texture2D" uid="uid://dbwaaxhxkyao8" path="res://Art/intro/frames/6.png" id="7_asf0x"]
+[ext_resource type="Texture2D" uid="uid://ckxtd6edxrqqb" path="res://Art/intro/frames/7.png" id="8_sbqyw"]
+[ext_resource type="Texture2D" uid="uid://bei7ttcvfqxic" path="res://Art/intro/frames/8.png" id="9_hosgb"]
+[ext_resource type="Texture2D" uid="uid://bkxxyvvrbvjf4" path="res://Art/intro/frames/9.png" id="10_r8x75"]
+[ext_resource type="AudioStream" uid="uid://00dek72kaede" path="res://Art/intro/intro sounds/01_eye popping.wav" id="11_jxuy0"]
+[ext_resource type="AudioStream" uid="uid://y5el727gwhlk" path="res://Art/intro/intro sounds/02_fart.wav" id="12_r38hr"]
+[ext_resource type="AudioStream" uid="uid://cmffk5l5jh0e7" path="res://Art/intro/intro sounds/03_escalation1.wav" id="13_1h6ow"]
+[ext_resource type="AudioStream" uid="uid://84p2l5yxjqf2" path="res://Art/intro/intro sounds/04_escalation2.wav" id="14_jftq7"]
+[ext_resource type="AudioStream" uid="uid://cvbsvrr7irj12" path="res://Art/intro/intro sounds/05_escalation3.wav" id="15_o4yff"]
+[ext_resource type="AudioStream" uid="uid://cyic4vxro3x8g" path="res://Art/intro/intro sounds/06_escalation4.wav" id="16_mwvn2"]
+[ext_resource type="AudioStream" uid="uid://d3uq3rxuntmjf" path="res://Art/intro/intro sounds/07_escalation5.wav" id="17_y31at"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_omodc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ji52j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wcoia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_62okd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_77j4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ir156")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_asf0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sbqyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hosgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r8x75")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7puok"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_18vxh"]
+
+[node name="Introduction" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_omodc")
+script = ExtResource("2_stml1")
+intro_sfx = Array[AudioStreamWAV]([ExtResource("11_jxuy0"), ExtResource("11_jxuy0"), ExtResource("12_r38hr"), ExtResource("13_1h6ow"), ExtResource("14_jftq7"), ExtResource("15_o4yff"), ExtResource("16_mwvn2"), ExtResource("17_y31at")])
+
+[node name="Background" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+scale = Vector2(2000, 2000)
+mesh = SubResource("QuadMesh_7puok")
+texture = SubResource("ImageTexture_18vxh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="FrameChangeTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="FrameChangeTimer" to="." method="_on_frame_change_timer_timeout"]

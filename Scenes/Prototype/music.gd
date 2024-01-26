@@ -1,4 +1,4 @@
 extends AudioStreamPlayer
 
-func _ready():
-	play()
+#func _ready():
+	#play()
