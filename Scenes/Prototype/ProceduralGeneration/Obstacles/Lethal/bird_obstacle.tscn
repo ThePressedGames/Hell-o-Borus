@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://c30f6tarf8ll" path="res://Audio/sfx/Incoming Bird_01.mp3" id="2_sp01o"]
 [ext_resource type="AudioStream" uid="uid://dhm8bfm5wr5s3" path="res://Audio/sfx/Incoming Bird_02.mp3" id="3_2icqu"]
 [ext_resource type="AudioStream" uid="uid://dhmd6n0tw3v0a" path="res://Audio/sfx/Incoming Bird_05.mp3" id="4_7vsr8"]
-[ext_resource type="AudioStream" uid="uid://bl0ylg875vxuk" path="res://Audio/sfx/Incoming Bird_06.mp3" id="5_bwsrx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjgbp"]
 atlas = ExtResource("1_47hd2")
@@ -93,16 +92,18 @@ animations = [{
 size = Vector2(99, 21)
 
 [node name="BirdObstacle" type="StaticBody2D"]
+position = Vector2(20604.1, 388.929)
 scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_6fyat")
-spawn_sounds = Array[AudioStreamMP3]([ExtResource("2_sp01o"), ExtResource("3_2icqu"), ExtResource("4_7vsr8"), ExtResource("5_bwsrx")])
+x_speed = 1291.41
+spawn_sounds = Array[AudioStreamMP3]([ExtResource("2_sp01o"), ExtResource("3_2icqu"), ExtResource("4_7vsr8")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ql156")
-frame_progress = 0.223057
+frame_progress = 0.0243119
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -6)

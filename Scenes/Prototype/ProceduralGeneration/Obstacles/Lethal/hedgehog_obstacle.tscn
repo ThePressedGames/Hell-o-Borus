@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Prototype/ProceduralGeneration/Obstacles/Lethal/hedgehog_obstacle.gd" id="1_c34lx"]
 [ext_resource type="Texture2D" uid="uid://bj5mdh2nmo7p1" path="res://Art/enemies/240121_hedgehog.png" id="1_ihxfm"]
+[ext_resource type="AudioStream" uid="uid://duwoui1yc1m1q" path="res://Audio/sfx/Incoming Hedgehog_01.mp3" id="2_ywcvv"]
+[ext_resource type="AudioStream" uid="uid://bko40d58gmfku" path="res://Audio/sfx/Incoming Hedgehog_02.mp3" id="3_aoclm"]
+[ext_resource type="AudioStream" uid="uid://tkj53xvdger3" path="res://Audio/sfx/Incoming Hedgehog_03.mp3" id="4_3igk1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuvfy"]
 atlas = ExtResource("1_ihxfm")
@@ -38,6 +41,7 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_c34lx")
+spawn_sounds = Array[AudioStreamMP3]([ExtResource("2_ywcvv"), ExtResource("3_aoclm"), ExtResource("4_3igk1")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6u6fc")
@@ -48,5 +52,7 @@ polygon = PackedVector2Array(-146, 124, -142, 4, -152, -52, -66, -120, 44, -98, 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, -10.8333)
 scale = Vector2(27, 15.25)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
